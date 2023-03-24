@@ -20,8 +20,6 @@ app.post('/api/message', (req, res, next) => {
     .then(message => console.log(message.sid));
 })
 
-
-
 app.listen(process.env.PORT, () => {
   console.log(`Express listening on port ${process.env.PORT}`);
 });
