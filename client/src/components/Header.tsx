@@ -5,9 +5,9 @@ export default function Header(props) {
   const [isMenuOpen, setIsMenuOpen] = useState(true);
   const menuStyle = {
     closed:
-      "w-full max-h-0 overflow-hidden absolute flex flex-col items-center mt-28 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-500",
+      "w-full max-h-0 overflow-hidden absolute flex flex-col items-center mt-28 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300",
     opened:
-      "w-full max-h-96 absolute flex flex-col items-center mt-28 pb-5 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-500",
+      "w-full max-h-96 absolute flex flex-col items-center mt-28 pb-5 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300",
   };
 
   return (
@@ -20,13 +20,13 @@ export default function Header(props) {
           </button>
         </div>
         <ul className={isMenuOpen ? menuStyle.opened : menuStyle.closed}>
-          <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-500` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-500`}>
+          <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
             <Link to="/vincent">Meet Vincent</Link>
           </li>
-          <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-500` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-500`}>
+          <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
             <Link to="/icarus"> Meet Icarus</Link>
           </li>
-          <li className={isMenuOpen ? 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white transition-all ease-in-out duration-500' : 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white opacity-0 transition-all ease-in-out duration-500'}>
+          <li className={isMenuOpen ? 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white transition-all ease-in-out duration-300' : 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white opacity-0 transition-all ease-in-out duration-300'}>
             <Link to="/get-started">Get Started</Link>
           </li>
         </ul>
