@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function Header(props) {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuStyle = {
     closed:
       "w-full max-h-0 overflow-hidden absolute flex flex-col items-center mt-28 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300",
