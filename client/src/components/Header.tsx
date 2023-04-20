@@ -15,7 +15,7 @@ export default function Header() {
     <header>
       <nav className={`md:shadow-md flex justify-center ${isMenuOpen ? 'w-full h-28' : 'w-full h-28 shadow-md'}`}>
         <div className="w-full max-w-screen-2xl h-28 px-5 absolute flex flex-row justify-between items-center ">
-          <Link className="text-4xl font-semibold" to="/">Vincent&Icarus</Link>
+          <Link onClick={() => setIsMenuOpen(false)} className="text-4xl font-semibold" to="/">Vincent&Icarus</Link>
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="w-12 md:hidden h-12 border border-solid border-black rounded">
             <i className="fa-sharp fa-solid fa-bars text-4xl"></i>
           </button>
