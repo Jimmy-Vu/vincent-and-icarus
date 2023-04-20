@@ -28,11 +28,11 @@ export default function App() {
 
 const Root = () => {
   return (
-    <>
+    <div className="flex flex-col h-screen">
       <Header />
-      <div>
+      <div className="flex grow">
         <Outlet />
       </div>
-    </>
+    </div>
   );
 }
