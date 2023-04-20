@@ -58,7 +58,7 @@ export default function Header() {
             } to="/vincent">Meet Vincent</NavLink>
           </li>
           <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
-            <NavLink className={({ isActive, isPending }) =>
+            <NavLink onClick={() => setIsMenuOpen(false)} className={({ isActive, isPending }) =>
               isActive
                 ? "before:content-['>']"
                 : isPending
