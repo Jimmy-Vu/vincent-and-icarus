@@ -19,7 +19,7 @@ export default function Home(props) {
           </ul>
           <img src="client/src/assets/Humaaans - Standing.png" className="max-w-[160px] aspect-[160/204]"/>
         </section>
-        <i className="fa-solid fa-chevron-down mb-5 text-3xl"></i>
+        <i className="fa-solid fa-chevron-down mb-5 text-3xl animate-bounce-slow"></i>
       </main>
     </>
   );

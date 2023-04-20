@@ -10,7 +10,13 @@ module.exports = {
     fontFamily: {
       sans: ['Manrope', ...defaultTheme.fontFamily.sans]
     },
-    extend: {}
+    extend: {
+      animation: {
+        'bounce-slow': 'bounce 2s infinite'
+      },
+      keyframes: {
+      }
+    }
   },
   plugins: []
 }
