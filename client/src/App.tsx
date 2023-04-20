@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import Vincent from './pages/vincent'
@@ -6,7 +6,6 @@ import Icarus from './pages/icarus'
 import Header from './components/header'
 import ErrorPage from './pages/error'
 import NotFound from './pages/notFound'
-const windowSize = window.innerWidth;
 
 export default function App() {
   const router = createBrowserRouter(
@@ -30,7 +29,7 @@ export default function App() {
 const Root = () => {
   return (
     <>
-      <Header windowSize={windowSize} />
+      <Header />
       <div>
         <Outlet />
       </div>
