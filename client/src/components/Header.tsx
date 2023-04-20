@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
 
@@ -19,29 +19,55 @@ export default function Header() {
           <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="w-12 md:hidden h-12 border border-solid border-black rounded">
             <i className="fa-sharp fa-solid fa-bars text-4xl"></i>
           </button>
-          <ul className="hidden w-6/12 md:flex flex-row justify-between items-center" >
+          {/* Desktop Nav */}
+          <ul className="hidden w-6/12 md:flex flex-row justify-between items-center">
             <li className="text-2xl font-semibold">
-              <Link to="/vincent">Meet Vincent</Link>
+              <NavLink className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-2xl underline underline-offset-8 decoration-2 font-semibold hover:text-neutral-600"
+                  : isPending
+                    ? "pending"
+                    : "text-2xl font-semibold hover:text-neutral-700"
+              } to="/vincent">Meet Vincent</NavLink>
             </li>
-            <li className="text-2xl font-semibold">
-              <Link to="/icarus">Meet Icarus</Link>
+            <li>
+              <NavLink className={({ isActive, isPending }) =>
+                isActive
+                  ? "text-2xl underline underline-offset-8 decoration-2 font-semibold hover:text-neutral-600"
+                  : isPending
+                    ? "pending"
+                    : "text-2xl font-semibold hover:text-neutral-700"
+              } to="/icarus">Meet Icarus</NavLink>
             </li>
-            <li className="w-60 h-16 flex justify-center items-center bg-black rounded">
-              <Link to="/get-started">
-                <button className=" text-white text-2xl font-bold">Get Started</button>
+            <li>
+              <Link className="w-52 h-14 flex justify-center items-center bg-black rounded hover:bg-neutral-800 hover:ring-slate-500" to="/get-started">
+                <button className=" text-white text-xl font-bold">Get Started</button>
               </Link>
             </li>
           </ul>
         </div>
+        {/* Mobile Dropdown Nav */}
         <ul className={`md:hidden ${isMenuOpen ? menuStyle.opened : menuStyle.closed}`}>
           <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
-            <Link to="/vincent">Meet Vincent</Link>
+            <NavLink onClick={() => setIsMenuOpen(false)} className={({ isActive, isPending }) =>
+              isActive
+                ? "before:content-['>']"
+                : isPending
+                  ? "pending"
+                  : ""
+            } to="/vincent">Meet Vincent</NavLink>
           </li>
           <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
-            <Link to="/icarus"> Meet Icarus</Link>
+            <NavLink className={({ isActive, isPending }) =>
+              isActive
+                ? "before:content-['>']"
+                : isPending
+                  ? "pending"
+                  : ""
+            } to="/icarus">Meet Icarus</NavLink>
           </li>
-          <li className={isMenuOpen ? 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white transition-all ease-in-out duration-300' : 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white opacity-0 transition-all ease-in-out duration-300'}>
-            <Link to="/get-started">Get Started</Link>
+          <li>
+            <Link onClick={() => setIsMenuOpen(false)} to="/get-started" className={isMenuOpen ? 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white transition-all ease-in-out duration-300' : 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white opacity-0 transition-all ease-in-out duration-300'}>Get Started</Link>
           </li>
         </ul>
       </nav>
