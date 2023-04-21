@@ -26,11 +26,19 @@ export default function Home() {
         </section>
 
         <section id="2" className="h-screen pt-28 pb-5 px-6 flex flex-col items-center">
-          <div className="mt-5">
-            <p className="mb-3">Do you ever find yourself torn between <b>self-doubt</b> and <b>overconfidence</b>?</p>
-            <p className="mb-3">Do you struggle to find balance in managing your time and achieving your goals?</p>
-            <p className="mb-3">Have you <b>missed out on opportunities</b> because you were either too hesitant or too impulsive?</p>
-            <p className="mb-3">Find the right balance between <b>self-confidence</b> and <b>humility</b>, and manage your time effectively to achieve success and avoid costly mistakes.</p>
+          <div className="my-5">
+            <p className="mb-3">Are you held back by <b>self-doubt or overconfidence</b>?</p>
+            <p className="mb-3">Struggling to balance your time and <b>achieve your goals</b>?</p>
+            <p className="mb-3"><b>Missed opportunities</b> due to hesitation or impulsiveness?</p>
+          </div>
+          <h2 className="text-3xl font-bold mb-5">Sound familiar?</h2>
+          <div className="mb-5">
+            <p className="mb-3">Feeling like you're ever good enough, or feeling like you can do no wrong?</p>
+            <p className="mb-3">Starting a project with great enthusiasm, only to become overwhelmed and lose motivation?</p>
+            <p className="mb-3">Feeling like your flaws hold you back, or feeling like you're invincible and can take on anything?</p>
+          </div>
+          <div>
+            <h1 className="text-3xl text-center font-bold mb-5">Meet your guidance counselors</h1>
           </div>
         </section>
       </main>
