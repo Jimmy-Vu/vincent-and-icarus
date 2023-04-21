@@ -1,10 +1,10 @@
 import React from "react";
 
-export default function Home(props) {
+export default function Home() {
   return (
     <>
       <main className="w-full h-full flex flex-col">
-        <section className="relative h-full pt-10 pb-5 px-6 flex grow flex-col items-center">
+        <section id="1" className="max-h-screen pt-10 pb-5 px-6 flex flex-col items-center">
           <div className="flex flex-col items-center">
             <h1 className="text-4xl font-semibold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
             <ul className="mt-4">
@@ -20,13 +20,18 @@ export default function Home(props) {
             </ul>
             <img src="client/src/assets/Humaaans - Standing.png" className="max-w-[160px] aspect-[160/204]" />
           </div>
-          <button className="absolute bottom-1 mx-auto text-3xl animate-bounce-slow">
+          <a href="#2" className="absolute bottom-1 mx-auto text-3xl animate-bounce-slow">
             <i className="fa-solid fa-chevron-down"></i>
-          </button>
+          </a>
         </section>
 
-        <section className="w-full h-screen">
-          <h1>content</h1>
+        <section id="2" className="h-screen pt-28 pb-5 px-6 flex flex-col items-center">
+          <div className="mt-5">
+            <p className="mb-3">Do you ever find yourself torn between <b>self-doubt</b> and <b>overconfidence</b>?</p>
+            <p className="mb-3">Do you struggle to find balance in managing your time and achieving your goals?</p>
+            <p className="mb-3">Have you <b>missed out on opportunities</b> because you were either too hesitant or too impulsive?</p>
+            <p className="mb-3">Find the right balance between <b>self-confidence</b> and <b>humility</b>, and manage your time effectively to achieve success and avoid costly mistakes.</p>
+          </div>
         </section>
       </main>
     </>
