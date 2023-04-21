@@ -28,9 +28,9 @@ export default function App() {
 
 const Root = () => {
   return (
-    <div className="flex flex-col h-screen">
+    <div className="flex flex-col min-h-screen">
       <Header />
-      <div className="flex grow">
+      <div className="pt-28">
         <Outlet />
       </div>
     </div>
