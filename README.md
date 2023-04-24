@@ -70,6 +70,9 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
+<p align="center">
+  <img width="800" src="https://user-images.githubusercontent.com/88172055/234083728-1e7b57b7-c935-4124-977a-e5ca7f4199a8.png" />
+ </p>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
