@@ -25,12 +25,12 @@ export default function Home() {
               <img className="max-w-[160px] lg:max-w-[385px] aspect-[160/204]" src="client/src/assets/Humaaans - Standing.png" />
             </div>
           </div>
-          <a href="#home-second-page" className="absolute bottom-1 mx-auto text-3xl animate-bounce-slow">
+          <a href="#home__second-page" className="absolute bottom-1 mx-auto text-3xl lg:text-4xl animate-bounce-slow">
             <i className="fa-solid fa-chevron-down"></i>
           </a>
         </section>
 
-        <section id="home__second-page" className="h-screen pt-28 -mt-28 pb-5">
+        <section id="home__second-page" className="min-h-screen pt-28 pb-10">
           <section className="flex flex-col items-center">
             <div className="my-10 text-center lg:text-xl">
               <p className="mb-3">Are you held back by <b>self-doubt or overconfidence</b>?</p>
