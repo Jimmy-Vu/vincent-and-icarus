@@ -30,7 +30,7 @@ export default function Home() {
           </a>
         </section>
 
-        <section id="2" className="h-fit pt-28 -mt-28 pb-5">
+        <section id="2" className="h-screen  pt-28 -mt-28 pb-5">
           <section className="flex flex-col items-center">
             <div className="my-10 text-center">
               <p className="mb-3">Are you held back by <b>self-doubt or overconfidence</b>?</p>
