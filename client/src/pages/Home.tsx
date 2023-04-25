@@ -4,29 +4,33 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <main className="w-full h-full flex flex-col px-6 ">
-        <section id="1" className="max-h-screen pt-3 flex flex-col items-center">
-          <div className="flex flex-col items-center">
-            <h1 className="text-4xl font-semibold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
-            <ul className="mt-4">
-              <li className="mb-4 before:content-['>']">
-                Stay grounded with text reminders to keep your Icarus from flying too high
-              </li>
-              <li className="mb-4 before:content-['>']">
-                Uplift your spirits with personalized messages to channel your inner Vincent
-              </li>
-              <li className="mb-4 before:content-['>']">
-                Soar to new heights while staying grounded
-              </li>
-            </ul>
-            <img src="client/src/assets/Humaaans - Standing.png" className="max-w-[160px] aspect-[160/204]" />
+      <main className="w-full h-full flex flex-col px-6 lg:px-48">
+        <section id="1" className="h-[calc(100vh-7rem)] pt-3 flex flex-col items-center">
+          <div className="h-full flex flex-col lg:flex-row items-center lg:justify-center">
+            <div className="lg:basis-1/2">
+              <h1 className="text-4xl lg:text-5xl font-semibold lg:font-bold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
+              <ul className="mt-4 lg:text-xl">
+                <li className="mb-4 before:content-['>']">
+                  Stay grounded with text reminders to keep your Icarus from flying too high
+                </li>
+                <li className="mb-4 before:content-['>']">
+                  Uplift your spirits with personalized messages to channel your inner Vincent
+                </li>
+                <li className="mb-4 before:content-['>']">
+                  Soar to new heights while staying grounded
+                </li>
+              </ul>
+            </div>
+            <div className="lg:basis-1/2 lg:flex lg:justify-end">
+              <img className="max-w-[160px] lg:max-w-[385px] aspect-[160/204]" src="client/src/assets/Humaaans - Standing.png" />
+            </div>
           </div>
           <a href="#2" className="absolute bottom-1 mx-auto text-3xl animate-bounce-slow">
             <i className="fa-solid fa-chevron-down"></i>
           </a>
         </section>
 
-        <section id="2" className="h-fit pt-28 pb-5">
+        <section id="2" className="h-fit pt-28 -mt-28 pb-5">
           <section className="flex flex-col items-center">
             <div className="my-10 text-center">
               <p className="mb-3">Are you held back by <b>self-doubt or overconfidence</b>?</p>
