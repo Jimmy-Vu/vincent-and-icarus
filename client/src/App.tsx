@@ -5,7 +5,8 @@ import Vincent from './pages/vincent'
 import Icarus from './pages/icarus'
 import Header from './components/header'
 import ErrorPage from './pages/error'
-import NotFound from './pages/notFound'
+import NotFound from './pages/not-found'
+import Footer from './components/footer'
 
 export default function App() {
   const router = createBrowserRouter(
@@ -33,6 +34,7 @@ const Root = () => {
       <div className="pt-28">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 }
