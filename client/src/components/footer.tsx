@@ -5,9 +5,9 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="h-32 min-h-min w-full max-w-screen-2xl mt-6 p-6 lg:px-48 shadow-md bg-slate-200 flex justify-center">
-        <section className="w-full flex flex-col">
-          <div className="flex justify-between">
+      <footer className="h-32 min-h-min w-full mt-6 p-6 lg:px-48 shadow-md bg-slate-200 flex justify-center">
+        <section className="h-full w-full max-w-screen-2xl flex flex-col">
+          <div className="h-full flex justify-between">
             <section className="flex flex-col justify-between">
               <span className="text-xl font-semibold">Vincent&Icarus</span>
               <div id="footer__social-links">
@@ -21,7 +21,6 @@ export default function Footer() {
             <ul>
               <li><Link to="/about">About</Link></li>
               <li><Link to="/faq">FAQ</Link></li>
-              <li><Link to="/temp">Temp</Link></li>
             </ul>
           </div>
         </section>
