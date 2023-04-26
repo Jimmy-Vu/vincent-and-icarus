@@ -4,8 +4,8 @@ import Home from './pages/home'
 import Vincent from './pages/vincent'
 import Icarus from './pages/icarus'
 import Header from './components/header'
-import ErrorPage from './pages/error'
-import NotFound from './pages/notFound'
+import NotFound from './pages/not-found'
+import Footer from './components/footer'
 
 export default function App() {
   const router = createBrowserRouter(
@@ -28,11 +28,12 @@ export default function App() {
 
 const Root = () => {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col items-center w-full min-h-screen">
       <Header />
-      <div className="pt-28">
+      <div className="w-full max-w-screen-2xl pt-28 flex justify-center">
         <Outlet />
       </div>
+      <Footer />
     </div>
   );
 }
