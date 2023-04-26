@@ -5,7 +5,7 @@ export default function Footer() {
 
   return (
     <>
-      <footer className="h-32 min-h-min w-full p-6 shadow-md bg-slate-200 flex justify-center">
+      <footer className="h-32 min-h-min w-full mt-6 p-6 shadow-md bg-slate-200 flex justify-center">
         <section className="w-full max-w-screen-2xl flex flex-col">
           <div className="flex justify-between">
             <span className="text-xl font-semibold">Vincent&Icarus</span>

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <main className="w-full h-full flex flex-col px-6">
+      <main className="w-full h-full flex flex-col mb-6 px-6 lg:px-48">
         <section id="home__main-page" className="h-[calc(100vh-7rem)] pt-3 flex flex-col items-center">
           <div className="h-full flex flex-col lg:flex-row items-center lg:justify-center">
             <div className="lg:basis-1/2">
@@ -30,7 +30,7 @@ export default function Home() {
           </a>
         </section>
 
-        <section id="home__second-page" className="min-h-screen pt-28 pb-10">
+        <section id="home__second-page" className="min-h-screen pt-28">
           <section className="flex flex-col items-center">
             <div className="my-10 text-center lg:text-xl">
               <p className="mb-3">Are you held back by <b>self-doubt or overconfidence</b>?</p>
