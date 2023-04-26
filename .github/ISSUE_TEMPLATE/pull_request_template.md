@@ -1,5 +1,5 @@
 ---
-name: Pull request
+name: pull_request_template
 about: This is the default template for pull requests.
 title: ''
 labels: ''
