@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom'
-import Home from './pages/home'
+import Home from './pages/Home'
 import Vincent from './pages/vincent'
 import Icarus from './pages/icarus'
 import Header from './components/header'

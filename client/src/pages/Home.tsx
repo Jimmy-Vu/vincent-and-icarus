@@ -39,9 +39,9 @@ export default function Home() {
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-10">Sound familiar?</h2>
             <div className="mb-10 text-center lg:text-xl">
-              <p className="mb-3">Feeling like you're ever good enough, or feeling like you can do no wrong?</p>
+              <p className="mb-3">Feeling like you're <b>never good enough</b>, or feeling like you can <b>do no wrong</b>?</p>
               <p className="mb-3">Starting a project with great enthusiasm, only to become overwhelmed and lose motivation?</p>
-              <p className="mb-3">Feeling like your flaws hold you back, or feeling like you're invincible and can take on anything?</p>
+              <p className="mb-3">Believing like your flaws hold you back, or believing like you're invincible</p>
             </div>
           </section>
           <section className="flex flex-col items-center lg:text-xl">
@@ -49,6 +49,7 @@ export default function Home() {
             <div className="my-10 text-center">
               <p className="mb-3">Vincent understands that some days are harder than others and that self doubt boggles us down from our true potential.</p>
               <p className="mb-3">Icarus knows that that the thrill of success blind us, leading to us to take falls from grace.</p>
+              <p className="mb-3">Together, they help you find the <b>balance</b> to navigate through life.</p>
             </div>
             <Link className="w-52 h-14 flex justify-center items-center bg-black rounded hover:bg-neutral-800 hover:ring-slate-500" to="/get-started">
               <button className=" text-white text-xl font-bold">Get Started</button>
