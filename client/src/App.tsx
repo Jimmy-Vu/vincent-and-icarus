@@ -4,7 +4,6 @@ import Home from './pages/home'
 import Vincent from './pages/vincent'
 import Icarus from './pages/icarus'
 import Header from './components/header'
-import ErrorPage from './pages/error'
 import NotFound from './pages/not-found'
 import Footer from './components/footer'
 
