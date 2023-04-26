@@ -112,7 +112,8 @@ Under Construction
 ## Roadmap
 
 #### Features
-- [ ] 1. Users can see the home page
+- [x] 1. User can see the home page
+- [ ] 2. User can access and see the 'Get Started' page
 
 ## Stretch Features
 
