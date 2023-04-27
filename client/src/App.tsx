@@ -6,6 +6,7 @@ import Icarus from './pages/icarus'
 import Header from './components/header'
 import NotFound from './pages/not-found'
 import Footer from './components/footer'
+import GetStarted from './pages/get-started'
 
 export default function App() {
   const router = createBrowserRouter(
@@ -14,6 +15,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="vincent" element={<Vincent />} />
         <Route path="icarus" element={<Icarus />} />
+        <Route path="get-started" element={<GetStarted />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )
@@ -28,7 +30,7 @@ export default function App() {
 
 const Root = () => {
   return (
-    <div className="flex flex-col items-center w-full min-h-screen">
+    <div className="flex flex-col items-center w-full h-screen min-h-screen">
       <Header />
       <div className="w-full max-w-screen-2xl pt-28 flex justify-center">
         <Outlet />

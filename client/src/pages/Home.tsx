@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 export default function Home() {
   return (
     <>
-      <main className="w-full h-full flex flex-col mb-6 px-6 lg:px-48">
+      <main className="w-full min-h-fit flex flex-col mb-6 px-6 lg:px-48">
         <section id="home__main-page" className="h-[calc(100vh-7rem)] pt-3 flex flex-col items-center">
           <div className="h-full flex flex-col lg:flex-row items-center lg:justify-center">
             <div className="lg:basis-1/2">
