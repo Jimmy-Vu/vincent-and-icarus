@@ -19,6 +19,8 @@
     ],
     "rules": {
         "semi": "off",
-        "@typescript-eslint/semi": "off"
+        "@typescript-eslint/semi": "off",
+        "quotes": "off",
+        "@typescript-eslint/quotes": "off"
     }
 }

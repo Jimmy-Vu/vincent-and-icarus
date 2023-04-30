@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import IntroStage from "./message-form-states/IntroStage";
-import FirstStage from "./message-form-states/FirstStage";
+import React, { useState } from 'react';
+import IntroStage from './message-form-states/IntroStage';
+import FirstStage from './message-form-states/FirstStage';
 
-export default function MessageForm() {
+export default function MessageForm () {
   const [userInfo, setUserInfo] = useState({
     archetype: 'Pending',
     name: '',
@@ -16,10 +16,10 @@ export default function MessageForm() {
   let stagedComponent;
   switch (formState.currentState) {
     case 'intro':
-      stagedComponent = <IntroStage onNext={(() => setFormState({ currentState: 'first' }))}/>;
+      stagedComponent = <IntroStage onNext={(() => { setFormState({ currentState: 'first' }) })} />;
       break;
     case 'first':
-      stagedComponent = <FirstStage onNext={(() => setFormState({ currentState: 'second' }))} onBack={(() => setFormState({ currentState: 'intro' }))} />;
+      stagedComponent = <FirstStage onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
       break;
   }
 
