@@ -5,7 +5,7 @@ import Vincent from './pages/vincent'
 import Icarus from './pages/icarus'
 import Header from './components/header'
 import NotFound from './pages/not-found'
-import Footer from './components/footer'
+import Footer from './components/Footer'
 import GetStarted from './pages/get-started'
 
 export default function App() {
