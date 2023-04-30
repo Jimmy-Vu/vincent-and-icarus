@@ -1,4 +1,5 @@
 import React from "react";
+import MessageForm from "../components/MessageForm";
 
 export default function GetStarted() {
 
@@ -6,7 +7,7 @@ export default function GetStarted() {
     <>
       <main className="w-full flex flex-col mb-6 px-6 lg:px-48">
         <section className="pt-3 flex flex-col items-center">
-
+          <MessageForm />
         </section>
       </main>
     </>
