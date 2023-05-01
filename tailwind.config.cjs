@@ -14,7 +14,8 @@ module.exports = {
       animation: {
         'bounce-slow': 'bounce 2s infinite'
       },
-      keyframes: {
+      colors: {
+        'bg-secondary': '#FAFAFA'
       }
     }
   },

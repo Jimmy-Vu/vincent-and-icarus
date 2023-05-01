@@ -25,8 +25,8 @@ export default function MessageForm(): React.ReactElement {
   }
 
   return (
-    <>
+    <div className="h-fit min-h-[408px] w-full flex justify-center items-center rounded bg-bg-secondary drop-shadow">
       {stagedComponent}
-    </>
+    </div>
   );
 }

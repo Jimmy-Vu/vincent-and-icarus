@@ -5,7 +5,7 @@ export default function GetStarted(): React.ReactElement {
   return (
     <>
       <main className="w-full flex flex-col mb-6 px-6 lg:px-48">
-        <section className="pt-3 flex flex-col items-center">
+        <section className="h-full flex flex-col justify-center items-center">
           <MessageForm />
         </section>
       </main>
