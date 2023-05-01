@@ -39,9 +39,9 @@ export default function Home(): React.ReactElement {
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-10">Sound familiar?</h2>
             <div className="mb-10 text-center lg:text-xl">
-              <p className="mb-3">Feeling like you're <b>never good enough</b>, or feeling like you can <b>do no wrong</b>?</p>
+              <p className="mb-3">Feeling like you&apos;re <b>never good enough</b>, or feeling like you can <b>do no wrong</b>?</p>
               <p className="mb-3">Starting a project with great enthusiasm, only to become overwhelmed and lose motivation?</p>
-              <p className="mb-3">Believing like your flaws hold you back, or believing like you're invincible</p>
+              <p className="mb-3">Believing like your flaws hold you back, or believing like you&apos;re invincible</p>
             </div>
           </section>
           <section className="flex flex-col items-center lg:text-xl">
