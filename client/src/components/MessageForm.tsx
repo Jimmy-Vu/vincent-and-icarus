@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import IntroStage from './message-form-states/IntroStage';
 import FirstStage from './message-form-states/FirstStage';
 
-export default function MessageForm () {
+export default function MessageForm(): React.ReactElement {
   const [userInfo, setUserInfo] = useState({
     archetype: 'Pending',
     name: '',

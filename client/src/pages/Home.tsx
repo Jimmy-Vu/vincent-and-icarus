@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Home (): React.ReactElement {
   return (
     <>
       <main className="w-full min-h-fit flex flex-col mb-6 px-6 lg:px-48">
