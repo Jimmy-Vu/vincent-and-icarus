@@ -1,6 +1,7 @@
 import React from "react";
+import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
-export default function FirstStage(props) {
+export default function FirstStage(props: messageFormStageProps): React.ReactElement {
   const { onNext, onBack } = props;
 
   return (
