@@ -14,7 +14,9 @@ export default function MessageForm(): React.ReactElement {
 
   const [answers, setAnswers] = useState({
     'mood-q': 0,
-    'accomplishments-q': 0
+    'accomplishments-q': 0,
+    'overwhelmed-q': 0,
+    'confident-q': 0
   });
 
   function handleAnswer(e: React.SyntheticEvent): void {

@@ -14,8 +14,3 @@ interface userInfoState {
   name: string;
   number: string;
 }
-
-interface answersState {
-  'mood-q': number;
-  'accomplishments-q': number;
-}
