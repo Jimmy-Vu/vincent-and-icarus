@@ -8,7 +8,7 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
     <div className="h-full flex flex-col">
       <h1 className="pt-5 text-center text-xl font-semibold">Let&apos;s get started by answering some questions.</h1>
       <section className="h-full pt-5 flex flex-col">
-        <span className="mb-5 text-lg  font-medium">Do you know if you’re a Vincent or Icarus today?</span>
+        <span className="mb-5 text-lg font-medium">Do you know if you’re a Vincent or Icarus today?</span>
         <div className="mb-3">
           <input type="radio" name="intro-q" id="vincent" />
           <label className="ml-3" htmlFor="vincent">I&apos;m feeling like a Vincent.</label>
