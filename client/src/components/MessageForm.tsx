@@ -11,6 +11,7 @@ export default function MessageForm(): React.ReactElement {
     name: '',
     number: ''
   });
+  const [userScore, setUserScore] = useState(0);
 
   const [formState, setFormState] = useState({
     currentState: 'intro'
@@ -22,10 +23,10 @@ export default function MessageForm(): React.ReactElement {
       stagedComponent = <IntroStage onNext={(() => { setFormState({ currentState: 'first' }) })} />;
       break;
     case 'first':
-      stagedComponent = <FirstStage onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
+      stagedComponent = <FirstStage setUserScore={setUserScore} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
       break;
     case 'second':
-      stagedComponent = <SecondStage onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
+      stagedComponent = <SecondStage setUserScore={setUserScore} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
       break;
     case 'archetype':
       stagedComponent = <ArchtypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'third' }); })} />;

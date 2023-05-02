@@ -1,8 +1,10 @@
+import { type Dispatch, type SetStateAction } from "react";
 export default interface messageFormStageProps {
   onNext?: () => void;
   onBack?: () => void;
-  setUserInfo?: (arg0: userInfoState) => void;
+  setUserInfo?: Dispatch<SetStateAction<userInfoState>>;
   userInfo?: userInfoState;
+  setUserScore?: Dispatch<SetStateAction<number>>;
 }
 
 interface userInfoState {
