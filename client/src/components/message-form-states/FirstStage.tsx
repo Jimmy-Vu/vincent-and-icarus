@@ -5,10 +5,42 @@ export default function FirstStage(props: messageFormStageProps): React.ReactEle
   const { onNext, onBack } = props;
 
   return (
-    <>
-      <h1>First</h1>
-      <button onClick={onNext}>Next</button>
-      <button onClick={onBack}>Back</button>
-    </>
+    <div className="h-full flex flex-col">
+      <h1 className="pt-5 text-center text-xl font-semibold">It&apos;s okay not to know. We&apos;ll help you figure it out.</h1>
+      <section className="h-full pt-5 flex flex-col">
+        <span className="mb-5 text-lg font-medium">Which of the following best describes your current mood?</span>
+        <div className="mb-3">
+          <input type="radio" name="mood-q" id="unmotivated" />
+          <label className="ml-3" htmlFor="unmotivated">I&apos;m feeling a bit down and unmotivated </label>
+        </div>
+        <div className="mb-3">
+          <input type="radio" name="intmoodro-q" id="good" />
+          <label className="ml-3" htmlFor="good">I&apos;m feeling pretty good about things</label>
+        </div>
+        <div className="mb-3">
+          <input type="radio" name="mood-q" id="confident" />
+          <label className="ml-3" htmlFor="confident">I&apos;m feeling really confident and on top of the world </label>
+        </div>
+      </section>
+      <section className="h-full pt-5 flex flex-col">
+        <span className="mb-5 text-lg font-medium">How are you feeling about your recent accomplishments?</span>
+        <div className="mb-3">
+          <input type="radio" name="accomplishments-q" id="proud" />
+          <label className="ml-3" htmlFor="proud"> I&apos;m feeling pretty proud of what I&apos;ve done</label>
+        </div>
+        <div className="mb-3">
+          <input type="radio" name="accomplishments-q" id="uncertain" />
+          <label className="ml-3" htmlFor="uncertain">I&apos;m feeling a bit uncertain about my achievements </label>
+        </div>
+        <div className="mb-3">
+          <input type="radio" name="accomplishments-q" id="unaccomplished" />
+          <label className="ml-3" htmlFor="unaccomplished"> I&apos;m feeling like I haven&apos;t accomplished much lately</label>
+        </div>
+      </section>
+      <div className="w-full flex justify-between mt-3">
+        <button className="text-2xl" onClick={onBack}><i className="fa-solid fa-arrow-left"></i></button>
+        <button className="text-2xl" onClick={onNext}><i className="fa-solid fa-arrow-right"></i></button>
+      </div>
+    </div>
   );
 }

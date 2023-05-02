@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import IntroStage from './message-form-states/IntroStage';
 import FirstStage from './message-form-states/FirstStage';
+import SecondStage from './message-form-states/SecondStage';
 
 export default function MessageForm(): React.ReactElement {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -21,6 +22,9 @@ export default function MessageForm(): React.ReactElement {
       break;
     case 'first':
       stagedComponent = <FirstStage onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
+      break;
+    case 'second':
+      stagedComponent = <SecondStage onNext={(() => { setFormState({ currentState: 'third' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
       break;
   }
 
