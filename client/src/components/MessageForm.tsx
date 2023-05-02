@@ -17,6 +17,14 @@ export default function MessageForm(): React.ReactElement {
     currentState: 'intro'
   })
 
+  function handleQuestionsCompletion(): void {
+    const computedType = computeArchetype(userScore);
+    setUserInfo((prev) => ({
+      ...prev,
+      archetype: computedType
+    }));
+  }
+
   let stagedComponent;
   switch (formState.currentState) {
     case 'intro':
@@ -26,7 +34,7 @@ export default function MessageForm(): React.ReactElement {
       stagedComponent = <FirstStage setUserScore={setUserScore} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
       break;
     case 'second':
-      stagedComponent = <SecondStage setUserScore={setUserScore} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
+      stagedComponent = <SecondStage handleQuestionsCompletion={handleQuestionsCompletion} setUserScore={setUserScore} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
       break;
     case 'archetype':
       stagedComponent = <ArchtypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'third' }); })} />;
@@ -38,4 +46,14 @@ export default function MessageForm(): React.ReactElement {
       {stagedComponent}
     </form>
   );
+}
+
+function computeArchetype(score: number): string {
+  if (score <= -2) {
+    return 'Vincent';
+  } else if (score > -2 && score < 2) {
+    return 'Neutral';
+  } else {
+    return 'Icarus';
+  }
 }

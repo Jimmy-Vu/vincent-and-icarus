@@ -5,6 +5,7 @@ export default interface messageFormStageProps {
   setUserInfo?: Dispatch<SetStateAction<userInfoState>>;
   userInfo?: userInfoState;
   setUserScore?: Dispatch<SetStateAction<number>>;
+  handleQuestionsCompletion?: () => void;
 }
 
 interface userInfoState {
