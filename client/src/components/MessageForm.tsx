@@ -21,7 +21,7 @@ export default function MessageForm(): React.ReactElement {
 
   function handleAnswer(e: React.SyntheticEvent): void {
     const target = e.target as HTMLInputElement & { 'data-score': number };
-    const score = target.getAttribute('data-score');
+    const score = parseInt(target.getAttribute('data-score') ?? '0', 10);
 
     setAnswers?.(prev => ({
       ...prev,
@@ -42,11 +42,29 @@ export default function MessageForm(): React.ReactElement {
   }
 
   function handleQuestionsCompletion(): void {
-    const computedType = computeArchetype(userScore);
+    const computedType = computeArchetype();
     setUserInfo((prev) => ({
       ...prev,
       archetype: computedType
     }));
+  }
+
+  function computeArchetype(): string {
+    let score = 0;
+    for (const i of Object.values(answers)) {
+      score += i;
+    }
+    console.log('score', score);
+    if (score <= -2) {
+      console.log('vincent');
+      return 'Vincent';
+    } else if (score > -2 && score < 2) {
+      console.log('Neutral');
+      return 'Neutral';
+    } else {
+      console.log('Icarus');
+      return 'Icarus';
+    }
   }
 
   let stagedComponent;
@@ -70,14 +88,4 @@ export default function MessageForm(): React.ReactElement {
       {stagedComponent}
     </form>
   );
-}
-
-function computeArchetype(score: number): string {
-  if (score <= -2) {
-    return 'Vincent';
-  } else if (score > -2 && score < 2) {
-    return 'Neutral';
-  } else {
-    return 'Icarus';
-  }
 }

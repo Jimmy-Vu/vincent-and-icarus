@@ -2,7 +2,7 @@ import React from 'react'
 import type messageFormStageProps from './interfaces/messageFormStageProps';
 
 export default function SecondStage(props: messageFormStageProps): React.ReactElement {
-  const { onNext, onBack, handleAnswer } = props;
+  const { onNext, onBack, handleAnswer, handleQuestionsCompletion } = props;
 
   return (
     <div className="h-full flex flex-col">
@@ -39,7 +39,7 @@ export default function SecondStage(props: messageFormStageProps): React.ReactEl
       </section>
       <div className="w-full flex justify-between mt-3">
         <button className="text-2xl" onClick={onBack}><i className="fa-solid fa-arrow-left"></i></button>
-        <button className="text-2xl" onClick={onNext}><i className="fa-solid fa-arrow-right"></i></button>
+        <button className="text-2xl" onClick={() => { handleQuestionsCompletion?.(); onNext?.(); }}><i className="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   )
