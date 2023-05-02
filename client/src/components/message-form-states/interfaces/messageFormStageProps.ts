@@ -6,11 +6,16 @@ export default interface messageFormStageProps {
   userInfo?: userInfoState;
   setUserScore?: Dispatch<SetStateAction<number>>;
   handleQuestionsCompletion?: () => void;
-  onQuestionAnswer?: (value: number) => void;
+  handleAnswer?: (e: React.SyntheticEvent<Element, Event>) => void;
 }
 
 interface userInfoState {
   archetype: string;
   name: string;
   number: string;
+}
+
+interface answersState {
+  'mood-q': number;
+  'accomplishments-q': number;
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
-export default function ArchtypeResultStage(props: messageFormStageProps): React.ReactElement {
+export default function ArchetypeResultStage(props: messageFormStageProps): React.ReactElement {
   const { onNext, onBack } = props;
   const result = '';
   return (
