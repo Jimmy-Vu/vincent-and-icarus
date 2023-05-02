@@ -6,6 +6,7 @@ export default interface messageFormStageProps {
   userInfo?: userInfoState;
   setUserScore?: Dispatch<SetStateAction<number>>;
   handleQuestionsCompletion?: () => void;
+  onQuestionAnswer?: (value: number) => void;
 }
 
 interface userInfoState {
