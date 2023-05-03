@@ -30,7 +30,7 @@ export default function MessageForm(): React.ReactElement {
 
   const [formState, setFormState] = useState({
     currentState: 'intro'
-  })
+  });
 
   function handleQuestionsCompletion(): void {
     const computedType = computeArchetype();
@@ -58,7 +58,7 @@ export default function MessageForm(): React.ReactElement {
   let stagedComponent;
   switch (formState.currentState) {
     case 'intro':
-      stagedComponent = <IntroStage onNext={(() => { setFormState({ currentState: 'first' }) })} />;
+      stagedComponent = <IntroStage setFormState={setFormState} setUserInfo={setUserInfo} />;
       break;
     case 'first':
       stagedComponent = <FirstStage handleAnswer={handleAnswer} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
@@ -67,7 +67,7 @@ export default function MessageForm(): React.ReactElement {
       stagedComponent = <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
       break;
     case 'archetype':
-      stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'confirmation' }); })} />;
+      stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'confirmation' }); })} onBack={(() => { setFormState({ currentState: 'second' }); })} />;
       break;
   }
 
