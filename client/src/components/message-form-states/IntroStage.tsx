@@ -3,35 +3,37 @@ import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
 export default function IntroStage(props: messageFormStageProps): React.ReactElement {
   if (props.setFormState === undefined) {
-    return;
+    return <div>Error: setFormState is undefined.</div>;
   }
   const { setFormState } = props;
   if (props.setUserInfo === undefined) {
-    return;
+    return <div>Error: setUserInfo is undefined.</div>;
   }
   const { setUserInfo } = props;
   const [introAnswer, setIntroAnswer] = useState('');
-  const [onNext, setOnNext] = useState(() => {
-    setFormState({ currentState: 'intro' })
-  })
+  const [onNextVal, setOnNextVal] = useState('');
 
-  switch (introAnswer) {
-    case 'vincent':
-      setUserInfo((prev) => ({
-        ...prev,
-        archetype: 'Vincent'
-      }))
-      console.log('Im in');
-      setOnNext(() => { setFormState({ currentState: 'archetype' }) });
-      break;
-    case 'icarus':
-      setUserInfo((prev) => ({
-        ...prev,
-        archetype: 'Icarus'
-      }));
-      setOnNext(() => { setFormState({ currentState: 'archetype' }) });
-      break;
-  }
+  useEffect(() => {
+    switch (introAnswer) {
+      case 'vincent':
+        setUserInfo((prev) => ({
+          ...prev,
+          archetype: 'Vincent'
+        }))
+        setOnNextVal('archetype');
+        break;
+      case 'icarus':
+        setUserInfo((prev) => ({
+          ...prev,
+          archetype: 'Icarus'
+        }));
+        setOnNextVal('archetype');
+        break;
+      case 'idk':
+        setOnNextVal('first');
+        break;
+    }
+  }, [introAnswer]);
 
   return (
     <div className="h-full flex flex-col">
@@ -47,12 +49,12 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
           <label className="ml-3" htmlFor="icarus">I&apos;m feeling like an Icarus.</label>
         </div>
         <div className="mb-3">
-          <input type="radio" name="intro-q" id="idk" />
+          <input onClick={() => { setIntroAnswer('idk'); }} type="radio" name="intro-q" id="idk" />
           <label className="ml-3" htmlFor="idk">I don&apos;t know.</label>
         </div>
       </section>
       <div className="w-full flex justify-end">
-        <button className="text-2xl" onClick={onNext}><i className="fa-solid fa-arrow-right"></i></button>
+        <button className="text-2xl" onClick={() => { setFormState({ currentState: `${onNextVal}` }); }}><i className="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   );
