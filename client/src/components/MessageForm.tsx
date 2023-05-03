@@ -35,12 +35,6 @@ export default function MessageForm(): React.ReactElement {
     currentState: 'intro'
   })
 
-  const [userScore, setUserScore] = useState(0);
-
-  function tallyScore(value: number): void {
-    setUserScore(prev => prev + value);
-  }
-
   function handleQuestionsCompletion(): void {
     const computedType = computeArchetype();
     setUserInfo((prev) => ({
@@ -56,13 +50,10 @@ export default function MessageForm(): React.ReactElement {
     }
     console.log('score', score);
     if (score <= -2) {
-      console.log('vincent');
       return 'Vincent';
     } else if (score > -2 && score < 2) {
-      console.log('Neutral');
       return 'Neutral';
     } else {
-      console.log('Icarus');
       return 'Icarus';
     }
   }
@@ -73,10 +64,10 @@ export default function MessageForm(): React.ReactElement {
       stagedComponent = <IntroStage onNext={(() => { setFormState({ currentState: 'first' }) })} />;
       break;
     case 'first':
-      stagedComponent = <FirstStage handleAnswer={handleAnswer} setUserScore={setUserScore} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
+      stagedComponent = <FirstStage handleAnswer={handleAnswer} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
       break;
     case 'second':
-      stagedComponent = <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} setUserScore={setUserScore} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
+      stagedComponent = <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
       break;
     case 'archetype':
       stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'third' }); })} />;
