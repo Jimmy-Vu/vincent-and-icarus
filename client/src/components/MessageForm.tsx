@@ -5,7 +5,6 @@ import SecondStage from './message-form-states/SecondStage';
 import ArchetypeResultStage from './message-form-states/ArchetypeResultStage';
 
 export default function MessageForm(): React.ReactElement {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [userInfo, setUserInfo] = useState({
     archetype: 'Pending',
     name: '',
@@ -28,8 +27,6 @@ export default function MessageForm(): React.ReactElement {
       [target.name]: score
     }))
   }
-
-  useEffect(() => { console.log(answers) }, [answers])
 
   const [formState, setFormState] = useState({
     currentState: 'intro'
@@ -70,7 +67,7 @@ export default function MessageForm(): React.ReactElement {
       stagedComponent = <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
       break;
     case 'archetype':
-      stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'third' }); })} />;
+      stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'confirmation' }); })} />;
       break;
   }
 
