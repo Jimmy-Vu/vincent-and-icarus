@@ -1,8 +1,9 @@
-import React, { type ReactElement, useEffect, useState } from 'react';
+import React, { type ReactElement, useState } from 'react';
 import IntroStage from './message-form-states/IntroStage';
 import FirstStage from './message-form-states/FirstStage';
 import SecondStage from './message-form-states/SecondStage';
 import ArchetypeResultStage from './message-form-states/ArchetypeResultStage';
+import InfoInputStage from './message-form-states/InfoInputStage';
 
 export default function MessageForm(): React.ReactElement {
   const [userInfo, setUserInfo] = useState({
@@ -29,7 +30,7 @@ export default function MessageForm(): React.ReactElement {
   }
 
   const [formState, setFormState] = useState({
-    currentState: 'intro',
+    currentState: 'infoInput',
     prevState: ''
   });
 
@@ -68,7 +69,9 @@ export default function MessageForm(): React.ReactElement {
       case 'second':
         return <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={navSetUp('second', 'archetype')} onBack={navSetUp('second', 'first')} />;
       case 'archetype':
-        return <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('archetype', 'confirmation')} onBack={navSetUp('archetype', 'intro')} />;
+        return <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('archetype', 'infoInput')} onBack={navSetUp('archetype', 'intro')} />;
+      case 'infoInput':
+        return <InfoInputStage onNext={navSetUp('infoInput', 'confirmation')} onBack={navSetUp('infoInput', 'archetype')} />
       default:
         return <div>Error!</div>
     }

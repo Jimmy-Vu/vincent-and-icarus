@@ -3,7 +3,7 @@ import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
 export default function ConfirmationStage(props: messageFormStageProps): React.ReactElement {
   return (
-    <>
-    </>
+    <div>
+    </div>
   );
 }
