@@ -62,7 +62,7 @@ export default function MessageForm(): React.ReactElement {
   let stagedComponent;
   switch (formState.currentState) {
     case 'intro':
-      stagedComponent = <IntroStage onNext={navSetUp('intro', 'first')} setFormState={setFormState} setUserInfo={setUserInfo} />;
+      stagedComponent = <IntroStage navSetUp={navSetUp} setUserInfo={setUserInfo} />;
       break;
     case 'first':
       stagedComponent = <FirstStage handleAnswer={handleAnswer} onNext={navSetUp('first', 'second')} onBack={navSetUp('first', 'intro')} />;

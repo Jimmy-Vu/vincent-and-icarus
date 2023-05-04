@@ -9,7 +9,8 @@ export default interface messageFormStageProps {
   setFormState?: Dispatch<SetStateAction<{
     currentState: string,
     prevState: string,
-  }>>
+  }>>;
+  navSetUp?: (prev: string, next: string) => (() => void);
 }
 
 interface userInfoState {

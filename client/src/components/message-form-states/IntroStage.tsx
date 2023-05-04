@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
 export default function IntroStage(props: messageFormStageProps): React.ReactElement {
-  if (props.setFormState === undefined) {
+  if (props.navSetUp === undefined) {
     return <div>Error: setFormState is undefined.</div>;
   }
-  const { setFormState } = props;
+  const { navSetUp } = props;
   if (props.setUserInfo === undefined) {
     return <div>Error: setUserInfo is undefined.</div>;
   }
@@ -32,6 +32,8 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
       case 'idk':
         setOnNextVal('first');
         break;
+      default:
+        setOnNextVal('first');
     }
   }, [introAnswer]);
 
@@ -54,7 +56,7 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
         </div>
       </section>
       <div className="w-full flex justify-end">
-        <button className="text-2xl" onClick={() => { setFormState({ currentState: `${onNextVal}` }); }}><i className="fa-solid fa-arrow-right"></i></button>
+        <button className="text-2xl" onClick={navSetUp('intro', onNextVal)}><i className="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   );
