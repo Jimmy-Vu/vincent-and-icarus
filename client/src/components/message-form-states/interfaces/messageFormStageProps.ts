@@ -6,7 +6,10 @@ export default interface messageFormStageProps {
   userInfo?: userInfoState;
   handleQuestionsCompletion?: () => void;
   handleAnswer?: (e: React.SyntheticEvent<Element, Event>) => void;
-  setFormState?: Dispatch<SetStateAction<{ currentState: string }>>
+  setFormState?: Dispatch<SetStateAction<{
+    currentState: string,
+    prevState: string,
+  }>>
 }
 
 interface userInfoState {

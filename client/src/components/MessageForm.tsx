@@ -29,7 +29,8 @@ export default function MessageForm(): React.ReactElement {
   }
 
   const [formState, setFormState] = useState({
-    currentState: 'intro'
+    currentState: 'intro',
+    prevState: ''
   });
 
   function handleQuestionsCompletion(): void {
@@ -45,7 +46,6 @@ export default function MessageForm(): React.ReactElement {
     for (const i of Object.values(answers)) {
       score += i;
     }
-    console.log('score', score);
     if (score <= -2) {
       return 'Vincent';
     } else if (score > -2 && score < 2) {
@@ -55,19 +55,23 @@ export default function MessageForm(): React.ReactElement {
     }
   }
 
+  function navSetUp(prev: string, next: string): (() => void) {
+    return () => { setFormState({ currentState: next, prevState: prev }) };
+  }
+
   let stagedComponent;
   switch (formState.currentState) {
     case 'intro':
-      stagedComponent = <IntroStage setFormState={setFormState} setUserInfo={setUserInfo} />;
+      stagedComponent = <IntroStage onNext={navSetUp('intro', 'first')} setFormState={setFormState} setUserInfo={setUserInfo} />;
       break;
     case 'first':
-      stagedComponent = <FirstStage handleAnswer={handleAnswer} onNext={(() => { setFormState({ currentState: 'second' }); })} onBack={(() => { setFormState({ currentState: 'intro' }); })} />;
+      stagedComponent = <FirstStage handleAnswer={handleAnswer} onNext={navSetUp('first', 'second')} onBack={navSetUp('first', 'intro')} />;
       break;
     case 'second':
-      stagedComponent = <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={(() => { setFormState({ currentState: 'archetype' }); })} onBack={(() => { setFormState({ currentState: 'first' }); })} />;
+      stagedComponent = <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={navSetUp('second', 'archetype')} onBack={navSetUp('second', 'first')} />;
       break;
     case 'archetype':
-      stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={(() => { setFormState({ currentState: 'confirmation' }); })} onBack={(() => { setFormState({ currentState: 'second' }); })} />;
+      stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('confirmation', 'TEMP')} onBack={navSetUp('confirmation', 'archetype')} />;
       break;
   }
 
