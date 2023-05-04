@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { type ReactElement, useEffect, useState } from 'react';
 import IntroStage from './message-form-states/IntroStage';
 import FirstStage from './message-form-states/FirstStage';
 import SecondStage from './message-form-states/SecondStage';
@@ -59,25 +59,24 @@ export default function MessageForm(): React.ReactElement {
     return () => { setFormState({ currentState: next, prevState: prev }) };
   }
 
-  let stagedComponent;
-  switch (formState.currentState) {
-    case 'intro':
-      stagedComponent = <IntroStage navSetUp={navSetUp} setUserInfo={setUserInfo} />;
-      break;
-    case 'first':
-      stagedComponent = <FirstStage handleAnswer={handleAnswer} onNext={navSetUp('first', 'second')} onBack={navSetUp('first', 'intro')} />;
-      break;
-    case 'second':
-      stagedComponent = <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={navSetUp('second', 'archetype')} onBack={navSetUp('second', 'first')} />;
-      break;
-    case 'archetype':
-      stagedComponent = <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('confirmation', 'TEMP')} onBack={navSetUp('confirmation', 'archetype')} />;
-      break;
+  function renderStage(): ReactElement {
+    switch (formState.currentState) {
+      case 'intro':
+        return <IntroStage navSetUp={navSetUp} setUserInfo={setUserInfo} />;
+      case 'first':
+        return <FirstStage handleAnswer={handleAnswer} onNext={navSetUp('first', 'second')} onBack={navSetUp('first', 'intro')} />;
+      case 'second':
+        return <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={navSetUp('second', 'archetype')} onBack={navSetUp('second', 'first')} />;
+      case 'archetype':
+        return <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('archetype', 'confirmation')} onBack={navSetUp('archetype', 'intro')} />;
+      default:
+        return <div>Error!</div>
+    }
   }
 
   return (
     <form className="h-fit min-h-[408px] w-full flex justify-center items-center p-5 rounded bg-bg-secondary drop-shadow">
-      {stagedComponent}
+      {renderStage()}
     </form>
   );
 }
