@@ -1,4 +1,4 @@
-import React, { type ReactElement, useState } from 'react';
+import React, { type ReactElement, useState, useEffect } from 'react';
 import IntroStage from './message-form-states/IntroStage';
 import FirstStage from './message-form-states/FirstStage';
 import SecondStage from './message-form-states/SecondStage';
@@ -11,6 +11,8 @@ export default function MessageForm(): React.ReactElement {
     name: '',
     number: ''
   });
+
+  useEffect(() => { console.log(userInfo) }, [userInfo])
 
   const [answers, setAnswers] = useState({
     'mood-q': 0,
@@ -71,7 +73,7 @@ export default function MessageForm(): React.ReactElement {
       case 'archetype':
         return <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('archetype', 'infoInput')} onBack={navSetUp('archetype', 'intro')} />;
       case 'infoInput':
-        return <InfoInputStage onNext={navSetUp('infoInput', 'confirmation')} onBack={navSetUp('infoInput', 'archetype')} />
+        return <InfoInputStage setUserInfo={setUserInfo} onNext={navSetUp('infoInput', 'confirmation')} onBack={navSetUp('infoInput', 'archetype')} />
       default:
         return <div>Error!</div>
     }

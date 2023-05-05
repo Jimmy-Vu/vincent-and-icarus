@@ -2,7 +2,15 @@ import React from "react";
 import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
 export default function InfoInputStage(props: messageFormStageProps): React.ReactElement {
-  const { onNext, onBack } = props;
+  const { onNext, onBack, setUserInfo } = props;
+
+  function handleChange(e: React.SyntheticEvent): void {
+    const target = e.target as HTMLInputElement;
+    setUserInfo?.(prev => ({
+      ...prev,
+      [target.name]: target.value
+    }));
+  }
   return (
     <div className="w-full">
       <section>
@@ -12,11 +20,11 @@ export default function InfoInputStage(props: messageFormStageProps): React.Reac
         <div className="flex flex-col">
           <div className="mb-5 flex flex-col">
             <label htmlFor="name">Name</label>
-            <input className="border border-solid border-black" type="text" name="name" id="name" />
+            <input onChange={handleChange} className="border border-solid border-black" type="text" name="name" id="name" />
           </div>
           <div className="mb-5 flex flex-col">
             <label htmlFor="number">Phone Number</label>
-            <input className="border border-solid border-black" type="text" name="number" id="number" />
+            <input onChange={handleChange} className="border border-solid border-black" type="text" name="number" id="number" />
           </div>
           <div className="flex items-start mb-5">
             <input className="mt-1" type="checkbox" name="consent" id="consent" />
