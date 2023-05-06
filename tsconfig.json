@@ -17,6 +17,13 @@
     "jsx": "react-jsx",
     "noImplicitAny": true
   },
-  "include": ["client/**/*"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "ts-node": {
+    "esm": true
+  },
+  "include": ["client/**/*", "server/**/*", "types.d.ts"],
+  "exclude": ["node_modules"],
+  "references": [{ "path": "./tsconfig.node.json" }],
+  "files": [
+    "types.d.ts"
+  ]
 }
