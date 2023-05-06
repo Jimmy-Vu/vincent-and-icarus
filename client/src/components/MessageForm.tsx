@@ -12,8 +12,6 @@ export default function MessageForm(): React.ReactElement {
     number: ''
   });
 
-  useEffect(() => { console.log(userInfo) }, [userInfo]);
-
   const [answers, setAnswers] = useState({
     'mood-q': 0,
     'accomplishments-q': 0,
@@ -64,6 +62,17 @@ export default function MessageForm(): React.ReactElement {
     for (const key in userInfo) {
       formData.append(key, userInfo[key as keyof typeof userInfo]);
     }
+
+    fetch('api/message', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: formData
+    })
+      .then(async res => await res.json())
+      .then(result => { console.log(result); })
+      .catch(err => { console.error(err); })
   }
 
   function navSetUp(prev: string, next: string): (() => void) {
