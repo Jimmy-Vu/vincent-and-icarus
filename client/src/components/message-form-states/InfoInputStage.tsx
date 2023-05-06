@@ -2,7 +2,7 @@ import React from "react";
 import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
 export default function InfoInputStage(props: messageFormStageProps): React.ReactElement {
-  const { onNext, onBack, setUserInfo } = props;
+  const { onNext, onBack, setUserInfo, handleSubmit } = props;
 
   function handleChange(e: React.SyntheticEvent): void {
     const target = e.target as HTMLInputElement;
@@ -34,7 +34,7 @@ export default function InfoInputStage(props: messageFormStageProps): React.Reac
       </section>
       <div className="w-full flex justify-between mt-3">
         <button className="text-2xl" onClick={onBack}><i className="fa-solid fa-arrow-left"></i></button>
-        <button className="text-2xl" onClick={onNext}><i className="fa-solid fa-arrow-right"></i></button>
+        <button className="text-2xl" onClick={handleSubmit}><i className="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   );
