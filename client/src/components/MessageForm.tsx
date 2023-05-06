@@ -58,7 +58,8 @@ export default function MessageForm(): React.ReactElement {
     }
   }
 
-  function handleSubmit(): void {
+  function handleSubmit(e: React.FormEvent<HTMLButtonElement>): void {
+    e.preventDefault();
     const formData = new FormData();
     for (const key in userInfo) {
       formData.append(key, userInfo[key as keyof typeof userInfo]);

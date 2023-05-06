@@ -11,7 +11,7 @@ export default interface messageFormStageProps {
     prevState: string,
   }>>;
   navSetUp?: (prev: string, next: string) => (() => void);
-  handleSubmit?: () => void;
+  handleSubmit?: (e: React.FormEvent<HTMLButtonElement>) => void;
 }
 
 interface userInfoState {
