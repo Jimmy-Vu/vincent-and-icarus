@@ -24,7 +24,7 @@ export default function InfoInputStage(props: messageFormStageProps): React.Reac
           </div>
           <div className="mb-5 flex flex-col">
             <label htmlFor="number">Phone Number</label>
-            <input onChange={handleChange} className="border border-solid border-black" type="text" name="number" id="number" />
+            <input onChange={handleChange} className="border border-solid border-black" type="tel" name="number" id="number" />
           </div>
           <div className="flex items-start mb-5">
             <input className="mt-1" type="checkbox" name="consent" id="consent" />

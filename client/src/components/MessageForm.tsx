@@ -12,7 +12,7 @@ export default function MessageForm(): React.ReactElement {
     number: ''
   });
 
-  useEffect(() => { console.log(userInfo) }, [userInfo])
+  useEffect(() => { console.log(userInfo) }, [userInfo]);
 
   const [answers, setAnswers] = useState({
     'mood-q': 0,
@@ -58,6 +58,13 @@ export default function MessageForm(): React.ReactElement {
     }
   }
 
+  function handleSubmit(): void {
+    const formData = new FormData();
+    for (const key in userInfo) {
+      formData.append(key, userInfo[key as keyof typeof userInfo]);
+    }
+  }
+
   function navSetUp(prev: string, next: string): (() => void) {
     return () => { setFormState({ currentState: next, prevState: prev }) };
   }
@@ -73,7 +80,7 @@ export default function MessageForm(): React.ReactElement {
       case 'archetype':
         return <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('archetype', 'infoInput')} onBack={navSetUp('archetype', 'intro')} />;
       case 'infoInput':
-        return <InfoInputStage setUserInfo={setUserInfo} onNext={navSetUp('infoInput', 'confirmation')} onBack={navSetUp('infoInput', 'archetype')} />
+        return <InfoInputStage handleSubmit={handleSubmit} setUserInfo={setUserInfo} onNext={navSetUp('infoInput', 'confirmation')} onBack={navSetUp('infoInput', 'archetype')} />
       default:
         return <div>Error!</div>
     }
