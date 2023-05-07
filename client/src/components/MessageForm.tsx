@@ -98,7 +98,7 @@ export default function MessageForm(): React.ReactElement {
   }
 
   return (
-    <form className="h-fit min-h-[408px] w-full flex justify-center items-center p-5 rounded bg-bg-secondary drop-shadow">
+    <form className="h-min min-h-[408px] w-full flex justify-center items-center p-5 rounded bg-bg-secondary drop-shadow">
       {renderStage()}
     </form>
   );

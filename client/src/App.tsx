@@ -32,7 +32,7 @@ const Root = (): React.ReactElement => {
   return (
     <div className="flex flex-col items-center w-full h-screen min-h-screen">
       <Header />
-      <div className="w-full max-w-screen-2xl h-full pt-28 flex justify-center">
+      <div className="w-full max-w-screen-2xl h-full mb-6 pt-28 flex justify-center">
         <Outlet />
       </div>
       <Footer />
