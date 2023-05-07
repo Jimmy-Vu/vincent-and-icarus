@@ -61,14 +61,16 @@ export default function MessageForm(): React.ReactElement {
     const formData = new FormData();
     for (const key in userInfo) {
       formData.append(key, userInfo[key as keyof typeof userInfo]);
+      console.log('formData key', key);
     }
     console.log('Inside handleSubmit');
+
     fetch('http://localhost:3000/api/message', {
       method: 'POST',
       headers: {
-        'Content-Type': 'application/json'
+        // 'Content-Type': 'multipart/form-data'
       },
-      body: JSON.stringify(formData)
+      body: formData
     })
       .then(async res => await res.json())
       .then(result => { console.log(result); })

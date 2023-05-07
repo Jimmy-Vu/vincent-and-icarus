@@ -3,11 +3,12 @@ import express, { type Response, type NextFunction } from 'express';
 import type { TypedRequestBody } from "../types";
 import twilio from "twilio";
 import cors from "cors";
+import multer from "multer";
 const app = express();
 dotenv.config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
-const twilioPhoneNum: string = process.env.TWILIO_PHONE_NUM;
+const twilioPhoneNum = process.env.TWILIO_PHONE_NUM;
 const client = twilio(accountSid, authToken);
 const corsOptions = {
   origin: '*',
@@ -15,15 +16,22 @@ const corsOptions = {
   optionSuccessStatus: 200
 }
 app.use(cors(corsOptions));
+// const jsonMiddleware = express.json();
+// app.use(jsonMiddleware);
 
-app.post('/api/message', (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
+app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
   console.log('Order received');
+  console.log('BODY', req.body);
+  if (Object.entries(req.body).length === 0) {
+    res.status(500).json({ message: 'Missing body' });
+    return;
+  }
   const { name, number: userNum, archetype } = req.body;
   client.messages
     .create({
       body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
       from: `+${twilioPhoneNum}`,
-      to: `+${userNum}`
+      to: userNum
     })
     .then(message => {
       console.log(message.sid);
