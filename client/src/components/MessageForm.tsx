@@ -12,8 +12,6 @@ export default function MessageForm(): React.ReactElement {
     number: ''
   });
 
-  useEffect(() => { console.log(userInfo) }, [userInfo]);
-
   const [answers, setAnswers] = useState({
     'mood-q': 0,
     'accomplishments-q': 0,
@@ -63,7 +61,20 @@ export default function MessageForm(): React.ReactElement {
     const formData = new FormData();
     for (const key in userInfo) {
       formData.append(key, userInfo[key as keyof typeof userInfo]);
+      console.log('formData key', key);
     }
+    console.log('Inside handleSubmit');
+
+    fetch('http://localhost:3000/api/message', {
+      method: 'POST',
+      headers: {
+        // 'Content-Type': 'multipart/form-data'
+      },
+      body: formData
+    })
+      .then(async res => await res.json())
+      .then(result => { console.log(result); })
+      .catch(err => { console.error(err); })
   }
 
   function navSetUp(prev: string, next: string): (() => void) {
