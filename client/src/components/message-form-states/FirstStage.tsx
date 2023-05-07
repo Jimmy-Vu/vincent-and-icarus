@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { ReactElement, useEffect, useState } from "react";
 import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
 export default function FirstStage(props: messageFormStageProps): React.ReactElement {
   const { onNext, onBack, handleAnswer } = props;
 
   const [isError, setIsError] = useState(false);
-  function requiredAnswersCheck(): void {
+  function requiredAnswers(): void {
     const inputs = Array.from(document.querySelectorAll("input"));
     const atLeastTwoChecked = inputs.filter(input => input.checked).length === 2;
     if (atLeastTwoChecked) {
@@ -54,7 +54,7 @@ export default function FirstStage(props: messageFormStageProps): React.ReactEle
       }
       <div className="w-full flex justify-between mt-3">
         <button className="text-2xl" onClick={onBack}><i className="fa-solid fa-arrow-left"></i></button>
-        <button className="text-2xl" type="button" onClick={requiredAnswersCheck}><i className="fa-solid fa-arrow-right"></i></button>
+        <button className="text-2xl" type="button" onClick={requiredAnswers}><i className="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   );
