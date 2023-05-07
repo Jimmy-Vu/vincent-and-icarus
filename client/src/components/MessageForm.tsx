@@ -30,7 +30,7 @@ export default function MessageForm(): React.ReactElement {
   }
 
   const [formState, setFormState] = useState({
-    currentState: 'infoInput',
+    currentState: 'intro',
     prevState: ''
   });
 
@@ -67,9 +67,7 @@ export default function MessageForm(): React.ReactElement {
 
     fetch('http://localhost:3000/api/message', {
       method: 'POST',
-      headers: {
-        // 'Content-Type': 'multipart/form-data'
-      },
+      headers: {},
       body: formData
     })
       .then(async res => await res.json())
@@ -77,8 +75,9 @@ export default function MessageForm(): React.ReactElement {
       .catch(err => { console.error(err); })
   }
 
-  function navSetUp(prev: string, next: string): (() => void) {
-    return () => { setFormState({ currentState: next, prevState: prev }) };
+  function navSetUp(prev: string, next: string): ReturnType<typeof setFormState> {
+    setFormState(prevState => ({ ...prevState, currentState: next, prevState: prev }));
+    setFormState({ currentState: next, prevState: prev });
   }
 
   function renderStage(): ReactElement {
@@ -86,13 +85,13 @@ export default function MessageForm(): React.ReactElement {
       case 'intro':
         return <IntroStage navSetUp={navSetUp} setUserInfo={setUserInfo} />;
       case 'first':
-        return <FirstStage handleAnswer={handleAnswer} onNext={navSetUp('first', 'second')} onBack={navSetUp('first', 'intro')} />;
+        return <FirstStage handleAnswer={handleAnswer} onNext={() => { navSetUp('first', 'second') }} onBack={() => { navSetUp('first', 'intro') }} />;
       case 'second':
-        return <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={navSetUp('second', 'archetype')} onBack={navSetUp('second', 'first')} />;
+        return <SecondStage handleAnswer={handleAnswer} handleQuestionsCompletion={handleQuestionsCompletion} onNext={() => { navSetUp('second', 'archetype') }} onBack={() => { navSetUp('second', 'first') }} />;
       case 'archetype':
-        return <ArchetypeResultStage userInfo={userInfo} onNext={navSetUp('archetype', 'infoInput')} onBack={navSetUp('archetype', 'intro')} />;
+        return <ArchetypeResultStage userInfo={userInfo} onNext={() => { navSetUp('archetype', 'infoInput') }} onBack={() => { navSetUp('archetype', 'intro') }} />;
       case 'infoInput':
-        return <InfoInputStage handleSubmit={handleSubmit} setUserInfo={setUserInfo} onNext={navSetUp('infoInput', 'confirmation')} onBack={navSetUp('infoInput', 'archetype')} />
+        return <InfoInputStage handleSubmit={handleSubmit} setUserInfo={setUserInfo} onNext={() => { navSetUp('infoInput', 'confirmation') }} onBack={() => { navSetUp('infoInput', 'archetype') }} />
       default:
         return <div>Error!</div>
     }

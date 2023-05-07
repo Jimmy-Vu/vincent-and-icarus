@@ -10,7 +10,7 @@ export default interface messageFormStageProps {
     currentState: string,
     prevState: string,
   }>>;
-  navSetUp?: (prev: string, next: string) => (() => void);
+  navSetUp?: (prev: string, next: string) => void;
   handleSubmit?: (e: React.FormEvent<HTMLButtonElement>) => void;
 }
 

@@ -37,10 +37,18 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
     }
   }, [introAnswer]);
 
+  function requiredAnswerCheck(): void {
+    const inputs = Array.from(document.querySelectorAll("input"));
+    const atLeastOneChecked = inputs.some(input => input.checked)
+    if (atLeastOneChecked) {
+      navSetUp('intro', onNextVal);
+    }
+  }
+
   return (
     <div className="h-full flex flex-col">
       <h1 className="pt-5 text-center text-xl font-semibold">Let&apos;s get started by answering some questions.</h1>
-      <section className="h-full pt-5 flex flex-col">
+      <fieldset className="h-full pt-5 flex flex-col">
         <span className="mb-5 text-lg font-medium">Do you know if you&apos;re a Vincent or Icarus today?</span>
         <div className="mb-3">
           <input onClick={() => { setIntroAnswer('vincent'); }} type="radio" name="intro-q" id="vincent" />
@@ -54,9 +62,9 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
           <input onClick={() => { setIntroAnswer('idk'); }} type="radio" name="intro-q" id="idk" />
           <label className="ml-3" htmlFor="idk">I don&apos;t know.</label>
         </div>
-      </section>
+      </fieldset>
       <div className="w-full flex justify-end">
-        <button className="text-2xl" onClick={navSetUp('intro', onNextVal)}><i className="fa-solid fa-arrow-right"></i></button>
+        <button className="text-2xl" type="button" onClick={requiredAnswerCheck}><i className="fa-solid fa-arrow-right"></i></button>
       </div>
     </div>
   );
