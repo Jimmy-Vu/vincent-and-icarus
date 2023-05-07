@@ -16,8 +16,6 @@ const corsOptions = {
   optionSuccessStatus: 200
 }
 app.use(cors(corsOptions));
-// const jsonMiddleware = express.json();
-// app.use(jsonMiddleware);
 
 app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
   console.log('Order received');
