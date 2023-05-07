@@ -12,6 +12,7 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
   const { setUserInfo } = props;
   const [introAnswer, setIntroAnswer] = useState('');
   const [onNextVal, setOnNextVal] = useState('');
+  const [isError, setIsError] = useState(false);
 
   useEffect(() => {
     switch (introAnswer) {
@@ -41,7 +42,10 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
     const inputs = Array.from(document.querySelectorAll("input"));
     const atLeastOneChecked = inputs.some(input => input.checked)
     if (atLeastOneChecked) {
+      setIsError(false);
       navSetUp('intro', onNextVal);
+    } else {
+      setIsError(true);
     }
   }
 
@@ -63,6 +67,9 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
           <label className="ml-3" htmlFor="idk">I don&apos;t know.</label>
         </div>
       </fieldset>
+      {isError &&
+        <p className="text-center text-red-600">Please choose an answer.</p>
+      }
       <div className="w-full flex justify-end">
         <button className="text-2xl" type="button" onClick={requiredAnswerCheck}><i className="fa-solid fa-arrow-right"></i></button>
       </div>
