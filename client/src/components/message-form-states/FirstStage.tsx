@@ -17,7 +17,7 @@ export default function FirstStage(props: messageFormStageProps): React.ReactEle
   }
 
   return (
-    <div className="h-full flex flex-col">
+    <div className="h-full w-full flex flex-col items-center">
       <h1 className="pt-5 text-center text-xl font-semibold">It&apos;s okay not to know. We&apos;ll help you figure it out.</h1>
       <fieldset className="h-full pt-5 flex flex-col">
         <span className="mb-5 text-lg font-medium">Which of the following best describes your current mood?</span>

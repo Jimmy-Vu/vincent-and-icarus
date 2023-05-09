@@ -46,9 +46,9 @@ export default function InfoInputStage(props: messageFormStageProps): React.Reac
 
   return (
     <div className="w-full">
-      <section>
+      <section className="px-5 pt-5">
         <h1 className="font-medium">Hey there, almost done! We&apos;re excited to send you a personalized message to help keep you balanced.
-          To finish things off, could you share a name to call you by and your phone number with us? Don&apos;t worry, we promise not to
+          Don&apos;t worry, we promise not to
           share your info with anyone else. And no need to stress - your information won&apos;t be stored on our servers either.</h1>
         <div className="flex flex-col">
           <div className="mb-5 flex flex-col">
@@ -65,7 +65,6 @@ export default function InfoInputStage(props: messageFormStageProps): React.Reac
           </div>
         </div>
       </section>
-      {/* <p className={`ml-2 text-center text-red-600 ${infoIsValid ? '' : 'hidden'}`}>Please fill out all the required info.</p> */}
       <div className="w-full flex justify-between mt-3">
         <button className="text-2xl" type="button" onClick={onBack}><i className="fa-solid fa-arrow-left"></i></button>
         <button disabled={!allIsValid} className={`text-2xl ${allIsValid ? '' : 'disabled:opacity-50'}`} type="submit" onClick={handleSubmit}><i className="fa-solid fa-arrow-right"></i></button>

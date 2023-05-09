@@ -50,9 +50,9 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
   }
 
   return (
-    <div className="h-full flex flex-col">
-      <h1 className="pt-5 text-center text-xl font-semibold">Let&apos;s get started by answering some questions.</h1>
-      <fieldset className="h-full pt-5 flex flex-col">
+    <div className="h-full flex flex-col items-center">
+      <h1 className="pt-5 text-center text-xl lg:text-2xl font-semibold">Let&apos;s get started by answering some questions.</h1>
+      <fieldset className="h-full pt-5 flex flex-col justify-center">
         <span className="mb-5 text-lg font-medium">Do you know if you&apos;re a Vincent or Icarus today?</span>
         <div className="mb-3">
           <input onClick={() => { setIntroAnswer('vincent'); }} type="radio" name="intro-q" id="vincent" />
