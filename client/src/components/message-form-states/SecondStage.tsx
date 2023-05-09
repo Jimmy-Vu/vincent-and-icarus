@@ -20,7 +20,7 @@ export default function SecondStage(props: messageFormStageProps): React.ReactEl
   return (
     <div className="h-full w-full flex flex-col items-center">
       <h1 className="pt-5 text-center text-xl font-semibold">It&apos;s okay not to know. We&apos;ll help you figure it out.</h1>
-      <fieldset className="w-[509px] h-full pt-5 flex flex-col items-start">
+      <fieldset className="lg:w-[509px] h-full pt-5 flex flex-col items-start">
         <span className="mb-5 text-lg font-medium">Are you currently feeling overwhelmed or stressed out?</span>
         <div className="ml-2 mb-3">
           <input onClick={handleAnswer} data-score={-1} type="radio" name="overwhelmed-q" id="definitely" />
