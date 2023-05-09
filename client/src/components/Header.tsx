@@ -2,21 +2,20 @@ import React, { useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 export default function Header() {
-
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuStyle = {
     closed:
       "w-full max-h-0 overflow-hidden absolute flex flex-col items-center mt-28 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300",
     opened:
-      "w-full max-h-96 absolute flex flex-col items-center mt-28 pb-5 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300",
+      "w-full max-h-96 absolute flex flex-col items-center mt-28 pb-5 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300"
   };
 
   return (
     <header className={`fixed w-full h-28 z-20 bg-white ${isMenuOpen ? '' : 'shadow-md'}`}>
       <nav className={`md:shadow-md flex justify-center`}>
         <div className="w-full max-w-screen-2xl h-28 px-5 absolute flex flex-row justify-between items-center ">
-          <Link onClick={() => setIsMenuOpen(false)} className="text-4xl font-semibold" to="/">Vincent&Icarus</Link>
-          <button onClick={() => setIsMenuOpen(!isMenuOpen)} className="w-12 md:hidden h-12 border border-solid border-black rounded">
+          <Link onClick={() => { setIsMenuOpen(false); }} className="text-4xl font-semibold" to="/">Vincent&Icarus</Link>
+          <button onClick={() => { setIsMenuOpen(!isMenuOpen); }} className="w-12 md:hidden h-12 border border-solid border-black rounded">
             <i className="fa-sharp fa-solid fa-bars text-4xl"></i>
           </button>
           {/* Desktop Nav */}
@@ -49,7 +48,7 @@ export default function Header() {
         {/* Mobile Dropdown Nav */}
         <ul className={`md:hidden ${isMenuOpen ? menuStyle.opened : menuStyle.closed}`}>
           <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
-            <NavLink onClick={() => setIsMenuOpen(false)} className={({ isActive, isPending }) =>
+            <NavLink onClick={() => { setIsMenuOpen(false); }} className={({ isActive, isPending }) =>
               isActive
                 ? "before:content-['>']"
                 : isPending
@@ -58,7 +57,7 @@ export default function Header() {
             } to="/vincent">Meet Vincent</NavLink>
           </li>
           <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
-            <NavLink onClick={() => setIsMenuOpen(false)} className={({ isActive, isPending }) =>
+            <NavLink onClick={() => { setIsMenuOpen(false); }} className={({ isActive, isPending }) =>
               isActive
                 ? "before:content-['>']"
                 : isPending
@@ -67,7 +66,7 @@ export default function Header() {
             } to="/icarus">Meet Icarus</NavLink>
           </li>
           <li>
-            <Link onClick={() => setIsMenuOpen(false)} to="/get-started" className={isMenuOpen ? 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white transition-all ease-in-out duration-300' : 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white opacity-0 transition-all ease-in-out duration-300'}>Get Started</Link>
+            <Link onClick={() => { setIsMenuOpen(false); }} to="/get-started" className={isMenuOpen ? 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white transition-all ease-in-out duration-300' : 'w-44 h-12 flex justify-center items-center rounded text-xl bg-black text-white opacity-0 transition-all ease-in-out duration-300'}>Get Started</Link>
           </li>
         </ul>
       </nav>

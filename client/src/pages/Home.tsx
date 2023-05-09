@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Home() {
+export default function Home(): React.ReactElement {
   return (
     <>
-      <main className="w-full h-full flex flex-col mb-6 px-6 lg:px-48">
+      <main className="w-full min-h-fit flex flex-col mb-6 px-6 lg:px-48">
         <section id="home__main-page" className="h-[calc(100vh-7rem)] pt-3 flex flex-col items-center">
           <div className="h-full flex flex-col lg:flex-row items-center lg:justify-center">
             <div className="lg:basis-1/2">
@@ -39,9 +39,9 @@ export default function Home() {
             </div>
             <h2 className="text-3xl lg:text-4xl font-bold mb-10">Sound familiar?</h2>
             <div className="mb-10 text-center lg:text-xl">
-              <p className="mb-3">Feeling like you're <b>never good enough</b>, or feeling like you can <b>do no wrong</b>?</p>
+              <p className="mb-3">Feeling like you&apos;re <b>never good enough</b>, or feeling like you can <b>do no wrong</b>?</p>
               <p className="mb-3">Starting a project with great enthusiasm, only to become overwhelmed and lose motivation?</p>
-              <p className="mb-3">Believing like your flaws hold you back, or believing like you're invincible</p>
+              <p className="mb-3">Believing like your flaws hold you back, or believing like you&apos;re invincible</p>
             </div>
           </section>
           <section className="flex flex-col items-center lg:text-xl">
