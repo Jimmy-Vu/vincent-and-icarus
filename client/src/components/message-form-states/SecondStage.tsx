@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type messageFormStageProps from './interfaces/messageFormStageProps';
+import type messageFormStageProps from "./interfaces/messageFormStageProps";
 
 export default function SecondStage(props: messageFormStageProps): React.ReactElement {
   const { onNext, onBack, handleAnswer, handleQuestionsCompletion } = props;
