@@ -30,7 +30,7 @@ export default function MessageForm(): React.ReactElement {
   }
 
   const [formState, setFormState] = useState({
-    currentState: 'intro',
+    currentState: 'infoInput',
     prevState: ''
   });
 
@@ -91,7 +91,7 @@ export default function MessageForm(): React.ReactElement {
       case 'archetype':
         return <ArchetypeResultStage userInfo={userInfo} onNext={() => { navSetUp('archetype', 'infoInput') }} onBack={() => { navSetUp('archetype', 'intro') }} />;
       case 'infoInput':
-        return <InfoInputStage handleSubmit={handleSubmit} setUserInfo={setUserInfo} onNext={() => { navSetUp('infoInput', 'confirmation') }} onBack={() => { navSetUp('infoInput', 'archetype') }} />
+        return <InfoInputStage handleSubmit={handleSubmit} userInfo={userInfo} setUserInfo={setUserInfo} onNext={() => { navSetUp('infoInput', 'confirmation') }} onBack={() => { navSetUp('infoInput', 'archetype') }} />
       default:
         return <div>Error!</div>
     }
