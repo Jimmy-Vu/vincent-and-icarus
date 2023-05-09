@@ -36,7 +36,8 @@ export default function InfoInputStage(props: messageFormStageProps): React.Reac
       number: target.value
     }));
 
-    if (target.value.length !== undefined && target.value.length === 10) {
+    const phoneNumRegEx = /^\(?\d{3}\)?[-.\s]?\d{3}[-.\s]?\d{4}$/;
+    if (target.value.length !== undefined && phoneNumRegEx.test(target.value)) {
       setInfoValidity(prev => ({ ...prev, number: true }))
     } else {
       setInfoValidity(prev => ({ ...prev, number: false }))

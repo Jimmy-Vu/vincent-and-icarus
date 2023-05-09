@@ -4,6 +4,7 @@ import FirstStage from './message-form-states/FirstStage';
 import SecondStage from './message-form-states/SecondStage';
 import ArchetypeResultStage from './message-form-states/ArchetypeResultStage';
 import InfoInputStage from './message-form-states/InfoInputStage';
+import ConfirmationStage from './message-form-states/ConfirmationStage';
 
 export default function MessageForm(): React.ReactElement {
   const [userInfo, setUserInfo] = useState({
@@ -30,7 +31,7 @@ export default function MessageForm(): React.ReactElement {
   }
 
   const [formState, setFormState] = useState({
-    currentState: 'infoInput',
+    currentState: 'intro',
     prevState: ''
   });
 
@@ -56,14 +57,17 @@ export default function MessageForm(): React.ReactElement {
     }
   }
 
+  function navSetUp(prev: string, next: string): ReturnType<typeof setFormState> {
+    setFormState(prevState => ({ ...prevState, currentState: next, prevState: prev }));
+    setFormState({ currentState: next, prevState: prev });
+  }
+
   function handleSubmit(e: React.FormEvent<HTMLButtonElement>): void {
     e.preventDefault();
     const formData = new FormData();
     for (const key in userInfo) {
       formData.append(key, userInfo[key as keyof typeof userInfo]);
-      console.log('formData key', key);
     }
-    console.log('Inside handleSubmit');
 
     fetch('http://localhost:3000/api/message', {
       method: 'POST',
@@ -71,13 +75,10 @@ export default function MessageForm(): React.ReactElement {
       body: formData
     })
       .then(async res => await res.json())
-      .then(result => { console.log(result); })
+      .then(result => {
+        navSetUp('', 'confirmation');
+      })
       .catch(err => { console.error(err); })
-  }
-
-  function navSetUp(prev: string, next: string): ReturnType<typeof setFormState> {
-    setFormState(prevState => ({ ...prevState, currentState: next, prevState: prev }));
-    setFormState({ currentState: next, prevState: prev });
   }
 
   function renderStage(): ReactElement {
@@ -92,6 +93,8 @@ export default function MessageForm(): React.ReactElement {
         return <ArchetypeResultStage userInfo={userInfo} onNext={() => { navSetUp('archetype', 'infoInput') }} onBack={() => { navSetUp('archetype', 'intro') }} />;
       case 'infoInput':
         return <InfoInputStage handleSubmit={handleSubmit} userInfo={userInfo} setUserInfo={setUserInfo} onNext={() => { navSetUp('infoInput', 'confirmation') }} onBack={() => { navSetUp('infoInput', 'archetype') }} />
+      case 'confirmation':
+        return <ConfirmationStage />
       default:
         return <div>Error!</div>
     }
