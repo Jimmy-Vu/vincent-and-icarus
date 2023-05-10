@@ -113,7 +113,8 @@ Under Construction
 
 #### Features
 - [x] 1. User can see the home page
-- [ ] 2. User can access and see the 'Get Started' page
+- [x] 2. User can access the 'Get Started' page to fill out a questionnaire
+- [ ] 3. User can receive personalized text messages
 
 ## Stretch Features
 
