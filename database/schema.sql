@@ -1,4 +1,12 @@
-CREATE TABLE "public.vincent" (
+SET client_min_messages TO warning;
+
+-- DANGER: this is NOT how to do it in the real world.
+-- `drop schema` INSTANTLY ERASES EVERYTHING.
+DROP SCHEMA "public" CASCADE;
+
+CREATE SCHEMA "public";
+
+CREATE TABLE "public"."vincent" (
 	"id" serial NOT NULL,
 	"message" TEXT NOT NULL,
 	CONSTRAINT "vincent_pk" PRIMARY KEY ("id")
@@ -8,7 +16,7 @@ CREATE TABLE "public.vincent" (
 
 
 
-CREATE TABLE "public.icarus" (
+CREATE TABLE "public"."icarus" (
 	"id" serial NOT NULL,
 	"message" TEXT NOT NULL,
 	CONSTRAINT "icarus_pk" PRIMARY KEY ("id")

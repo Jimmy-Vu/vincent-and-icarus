@@ -8,6 +8,7 @@
     "dev:vite": "vite",
     "dev:server": "nodemon server/index.ts",
     "build": "tsc && vite build",
+    "db:import": "bash scripts/db-import.bash",
     "preview": "vite preview",
     "host": "vite --host"
   },
