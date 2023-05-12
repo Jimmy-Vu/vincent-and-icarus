@@ -25,6 +25,16 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
     return;
   }
   const { name, number: userNum, archetype } = req.body;
+  const message = '';
+
+  sendTextMsg(userNum, message, res);
+});
+
+app.listen(process.env.PORT, () => {
+  console.log(`Express listening on port ${process.env.PORT}`);
+});
+
+function sendTextMsg(userNum: string, body: string, res: Response): void {
   client.messages
     .create({
       body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
@@ -39,8 +49,4 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
       console.error(err);
       res.status(500).json({ error: 'Failed to send message' })
     })
-})
-
-app.listen(process.env.PORT, () => {
-  console.log(`Express listening on port ${process.env.PORT}`);
-});
+}
