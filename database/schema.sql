@@ -14,12 +14,18 @@ CREATE TABLE "public"."vincent" (
   OIDS=FALSE
 );
 
-
-
 CREATE TABLE "public"."icarus" (
 	"id" serial NOT NULL,
 	"message" TEXT NOT NULL,
 	CONSTRAINT "icarus_pk" PRIMARY KEY ("id")
+) WITH (
+  OIDS=FALSE
+);
+
+CREATE TABLE "public"."neutral" (
+	"id" serial NOT NULL,
+	"message" TEXT NOT NULL,
+	CONSTRAINT "neutral_pk" PRIMARY KEY ("id")
 ) WITH (
   OIDS=FALSE
 );
