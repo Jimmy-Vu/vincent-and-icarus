@@ -34,10 +34,10 @@ app.listen(process.env.PORT, () => {
   console.log(`Express listening on port ${process.env.PORT}`);
 });
 
-function sendTextMsg(userNum: string, body: string, res: Response): void {
+function sendTextMsg(userNum: string, bodyMsg: string, res: Response): void {
   client.messages
     .create({
-      body: 'This is the ship that made the Kessel Run in fourteen parsecs?',
+      body: bodyMsg,
       from: `+${twilioPhoneNum}`,
       to: userNum
     })
