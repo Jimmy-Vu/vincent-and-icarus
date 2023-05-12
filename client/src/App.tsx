@@ -30,9 +30,9 @@ export default function App(): React.ReactElement {
 
 const Root = (): React.ReactElement => {
   return (
-    <div className="flex flex-col items-center w-full h-screen min-h-screen">
+    <div className="w-full h-full min-h-screen flex flex-col items-center">
       <Header />
-      <div className="w-full max-w-screen-2xl h-full mb-6 pt-28 flex justify-center">
+      <div className="w-full max-w-screen-2xl h-full min-h-fit mb-6 pt-28 flex grow justify-center items-center">
         <Outlet />
       </div>
       <Footer />
