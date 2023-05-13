@@ -28,14 +28,11 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
-  console.log('Order received');
-  console.log('BODY', req.body);
   if (Object.entries(req.body).length === 0) {
     res.status(500).json({ message: 'Missing body' });
     return;
   }
   const { name, number: userNum, archetype } = req.body;
-  console.log('archetype', archetype);
   let message = '';
   let sql = '';
   switch (archetype) {
@@ -51,14 +48,18 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
         FROM "icarus"
         ORDER BY RANDOM() LIMIT 1`;
       break;
+    case 'neutral':
+      sql = `
+      SELECT *
+        FROM "neutral"
+        ORDER BY RANDOM() LIMIT 1`;
+      break;
   }
-  console.log('sql', sql);
+
   db.query(sql)
     .then((result: QueryResult<{ message: string }>) => {
-      // console.log('result.rows', result.rows);
-      message = result.rows[0].message;
+      message = `Hey ${name}! ${result.rows[0].message}`;
       sendTextMsg(userNum, message, res);
-      return res.status(400).json({ message: 'Your message has been sent.' })
     })
     .catch((err: Error) => { next(err); });
 });
