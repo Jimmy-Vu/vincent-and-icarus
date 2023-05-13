@@ -4,6 +4,16 @@ import type { TypedRequestBody } from "../types";
 import twilio from "twilio";
 import cors from "cors";
 import multer from "multer";
+import pg from 'pg';
+import { type QueryResult } from 'pg';
+
+const db = new pg.Pool({
+  user: 'hightower',
+  password: 'hightower',
+  host: 'localhost',
+  port: 5432,
+  database: 'vincent_icarus_db'
+});
 const app = express();
 dotenv.config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -25,9 +35,29 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
     return;
   }
   const { name, number: userNum, archetype } = req.body;
-  const message = '';
-
-  sendTextMsg(userNum, message, res);
+  let message = '';
+  let sql = '';
+  switch (archetype) {
+    case 'vincent':
+      sql = `
+      SELECT *
+        FROM "vincent"
+        ORDER BY RANDOM() LIMIT 1`;
+      break;
+    case 'icarus':
+      sql = `
+      SELECT *
+        FROM "icarus"
+        ORDER BY RANDOM() LIMIT 1`;
+      break;
+  }
+  db.query(sql)
+    .then((result: QueryResult<{ message: string }>) => {
+      message = result.rows[0].message;
+      sendTextMsg(userNum, message, res);
+      return res.status(400).json({ message: 'Your message has been sent.' })
+    })
+    .catch((err: Error) => { next(err); });
 });
 
 app.listen(process.env.PORT, () => {
