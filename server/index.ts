@@ -4,16 +4,8 @@ import type { TypedRequestBody } from "../types";
 import twilio from "twilio";
 import cors from "cors";
 import multer from "multer";
-import pg from 'pg';
 import { type QueryResult } from 'pg';
-
-const db = new pg.Pool({
-  user: 'hightower',
-  password: 'hightower',
-  host: 'localhost',
-  port: 5432,
-  database: 'vincent_icarus_db'
-});
+import db from "./lib/db.js";
 const app = express();
 dotenv.config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
@@ -25,6 +17,7 @@ const corsOptions = {
   credentials: true, // access-control-allow-credentials:true
   optionSuccessStatus: 200
 }
+
 app.use(cors(corsOptions));
 
 app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
