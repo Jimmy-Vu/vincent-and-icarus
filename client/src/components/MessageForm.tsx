@@ -49,11 +49,11 @@ export default function MessageForm(): React.ReactElement {
       score += i;
     }
     if (score <= -2) {
-      return 'Vincent';
+      return 'vincent';
     } else if (score > -2 && score < 2) {
-      return 'Neutral';
+      return 'neutral';
     } else {
-      return 'Icarus';
+      return 'icarus';
     }
   }
 

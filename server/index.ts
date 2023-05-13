@@ -35,10 +35,11 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
     return;
   }
   const { name, number: userNum, archetype } = req.body;
+  console.log('archetype', archetype);
   let message = '';
   let sql = '';
   switch (archetype) {
-    case 'vincent':
+    case '':
       sql = `
       SELECT *
         FROM "vincent"
@@ -51,8 +52,10 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
         ORDER BY RANDOM() LIMIT 1`;
       break;
   }
+  console.log('sql', sql);
   db.query(sql)
     .then((result: QueryResult<{ message: string }>) => {
+      // console.log('result.rows', result.rows);
       message = result.rows[0].message;
       sendTextMsg(userNum, message, res);
       return res.status(400).json({ message: 'Your message has been sent.' })
