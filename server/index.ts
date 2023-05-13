@@ -64,10 +64,6 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
     .catch((err: Error) => { next(err); });
 });
 
-app.listen(process.env.PORT, () => {
-  console.log(`Express listening on port ${process.env.PORT}`);
-});
-
 function sendTextMsg(userNum: string, bodyMsg: string, res: Response): void {
   client.messages
     .create({
@@ -84,3 +80,7 @@ function sendTextMsg(userNum: string, bodyMsg: string, res: Response): void {
       res.status(500).json({ error: 'Failed to send message' })
     })
 }
+
+app.listen(process.env.PORT, () => {
+  console.log(`Express listening on port ${process.env.PORT}`);
+});
