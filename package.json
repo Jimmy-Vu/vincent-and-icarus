@@ -8,6 +8,7 @@
     "dev:vite": "vite",
     "dev:server": "nodemon server/index.ts",
     "build": "tsc && vite build",
+    "start": "node server/index.js",
     "db:import": "bash scripts/db-import.bash",
     "preview": "vite preview",
     "host": "vite --host"
