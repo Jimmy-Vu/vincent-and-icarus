@@ -6,7 +6,7 @@
   "main": "server/index.js",
   "scripts": {
     "preinstall": "npm install",
-    "build": "./node_modules/.bin/tsc && vite build",
+    "build": "vite build",
     "start": "node server/index.js",
     "dev": "npm-run-all --silent --parallel dev:*",
     "dev:vite": "vite",
