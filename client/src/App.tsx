@@ -1,7 +1,7 @@
 import React from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
-import Vincent from './pages/vincent'
+// import Vincent from './pages/vincent'
 import Icarus from './pages/icarus'
 import Header from './components/Header'
 import NotFound from './pages/not-found'
