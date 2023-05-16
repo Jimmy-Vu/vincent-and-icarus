@@ -19,14 +19,14 @@ export default function IntroStage(props: messageFormStageProps): React.ReactEle
       case 'vincent':
         setUserInfo((prev) => ({
           ...prev,
-          archetype: 'Vincent'
+          archetype: 'vincent'
         }))
         setOnNextVal('archetype');
         break;
       case 'icarus':
         setUserInfo((prev) => ({
           ...prev,
-          archetype: 'Icarus'
+          archetype: 'icarus'
         }));
         setOnNextVal('archetype');
         break;

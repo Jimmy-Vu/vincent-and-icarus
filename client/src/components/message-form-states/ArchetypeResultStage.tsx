@@ -6,13 +6,13 @@ export default function ArchetypeResultStage(props: messageFormStageProps): Reac
   let message = 'Empty';
   if (userInfo !== undefined) {
     switch (userInfo.archetype) {
-      case 'Vincent':
+      case 'vincent':
         message = 'a Vincent.';
         break;
-      case 'Neutral':
+      case 'neutral':
         message = 'feeling a bit neutral right now.';
         break;
-      case 'Icarus':
+      case 'icarus':
         message = 'an Icarus.';
         break;
     }
