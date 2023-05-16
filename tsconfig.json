@@ -15,7 +15,12 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "noImplicitAny": true
+    "noImplicitAny": true,
+    "baseUrl": ".",
+    "paths": {
+      "client/*": ["client/*"],
+      "server/*": ["server/*"]
+    }
   },
   "ts-node": {
     "esm": true
