@@ -6,7 +6,7 @@
   "main": "server/index.js",
   "scripts": {
     "preinstall": "npm install",
-    "build": "./node_modules/.bin/tsc && vite build",
+    "build": "tsc && vite build",
     "start": "node server/index.js",
     "dev": "npm-run-all --silent --parallel dev:*",
     "dev:vite": "vite",
@@ -26,7 +26,6 @@
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.9.0",
     "twilio": "^4.8.0",
-    "typescript": "^5.0.4",
     "vite-express": "^0.6.0"
   },
   "devDependencies": {
@@ -53,6 +52,7 @@
     "postcss": "^8.4.21",
     "tailwindcss": "^3.3.0",
     "ts-node": "^10.9.1",
+    "typescript": "^5.0.4",
     "vite": "^4.2.0"
   }
 }
