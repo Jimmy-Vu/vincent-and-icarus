@@ -22,7 +22,7 @@ export default function Home(): React.ReactElement {
               </ul>
             </div>
             <div className="lg:basis-1/2 lg:flex lg:justify-end">
-              <img className="max-w-[160px] lg:max-w-[385px] aspect-[160/204]" src="client/src/assets/Humaaans - Standing.png" />
+              <img className="max-w-[160px] lg:max-w-[385px] aspect-[160/204]" src="/Humaaans - Standing.png" />
             </div>
           </div>
           <a href="#home__second-page" className="absolute bottom-1 mx-auto text-3xl lg:text-4xl animate-bounce-slow">
