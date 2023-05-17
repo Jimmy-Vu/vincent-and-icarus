@@ -5,7 +5,7 @@ import Vincent from './pages/Vincent'
 import Icarus from './pages/Icarus'
 import Header from './components/Header'
 import NotFound from './pages/not-found'
-import Footer from './components/footer'
+import Footer from './components/Footer'
 import GetStarted from './pages/get-started'
 
 export default function App(): React.ReactElement {
