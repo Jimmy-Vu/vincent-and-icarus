@@ -1,11 +1,11 @@
 import React from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
-// import Vincent from './pages/vincent'
-import Icarus from './pages/icarus'
+import Vincent from './pages/Vincent'
+import Icarus from './pages/Icarus'
 import Header from './components/Header'
 import NotFound from './pages/not-found'
-import Footer from './components/Footer'
+import Footer from './components/footer'
 import GetStarted from './pages/get-started'
 
 export default function App(): React.ReactElement {

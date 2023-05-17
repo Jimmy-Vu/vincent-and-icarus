@@ -1,7 +1,7 @@
-import React, { type ReactElement } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
-export default function Footer(): ReactElement {
+export default function Footer(): React.ReactElement {
   return (
     <footer className="h-32 min-h-min w-full mt-6 p-6 lg:px-48 shadow-md bg-slate-200 flex justify-center">
       <section className="h-full w-full max-w-screen-2xl flex flex-col">
