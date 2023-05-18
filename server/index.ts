@@ -27,10 +27,11 @@ app.use(cors(corsOptions));
 app.get('/*', function (_req, res) {
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const __filename = fileURLToPath(import.meta.url);
+  console.log('__filename', __filename);
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const __dirname = path.dirname(__filename);
   console.log('__dirname', __dirname);
-  res.sendFile(path.join(__dirname, '../../dist/index.html'), function (err) {
+  res.sendFile(path.join(__dirname, '../dist/index.html'), function (err) {
     if (err !== undefined) {
       console.error('err', err);
       res.status(500).send(err)
