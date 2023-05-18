@@ -8,6 +8,7 @@ import { type QueryResult } from 'pg';
 import db from "./lib/db.js";
 import path from 'path';
 import staticMiddleware from './lib/static-middleware.js';
+import { fileURLToPath } from 'url';
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNum = process.env.TWILIO_PHONE_NUM;
@@ -24,6 +25,8 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 app.get('/*', function (_req, res) {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const __filename = fileURLToPath(import.meta.url);
   // eslint-disable-next-line @typescript-eslint/naming-convention
   const __dirname = path.dirname(__filename);
   console.log('__dirname', __dirname);
