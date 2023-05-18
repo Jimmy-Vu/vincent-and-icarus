@@ -6,6 +6,7 @@ import cors from "cors";
 import multer from "multer";
 import { type QueryResult } from 'pg';
 import db from "./lib/db.js";
+import path from 'path';
 import staticMiddleware from './lib/static-middleware.js';
 const app = express();
 dotenv.config();
@@ -21,6 +22,14 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.use(staticMiddleware);
+
+app.get('/*', function (_req, res) {
+  res.sendFile(path.join(__dirname, 'dist/index.html'), function (err) {
+    if (err !== undefined) {
+      res.status(500).send(err)
+    }
+  })
+})
 
 app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
   if (Object.entries(req.body).length === 0) {
