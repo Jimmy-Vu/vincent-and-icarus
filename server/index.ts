@@ -24,7 +24,7 @@ app.use(cors(corsOptions));
 app.use(staticMiddleware);
 
 app.get('/*', function (_req, res) {
-  res.sendFile(path.join(__dirname, 'dist/index.html'), function (err) {
+  res.sendFile(path.join(__dirname, '../../dist/index.html'), function (err) {
     if (err !== undefined) {
       res.status(500).send(err)
     }
