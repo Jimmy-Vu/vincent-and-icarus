@@ -6,21 +6,36 @@ import cors from "cors";
 import multer from "multer";
 import { type QueryResult } from 'pg';
 import db from "./lib/db.js";
+import path from 'path';
 import staticMiddleware from './lib/static-middleware.js';
-const app = express();
-dotenv.config();
+import { fileURLToPath } from 'url';
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNum = process.env.TWILIO_PHONE_NUM;
 const client = twilio(accountSid, authToken);
+dotenv.config();
+
+const app = express();
+app.use(staticMiddleware);
 const corsOptions = {
   origin: '*',
   credentials: true, // access-control-allow-credentials:true
   optionSuccessStatus: 200
 }
-
 app.use(cors(corsOptions));
-app.use(staticMiddleware);
+
+app.get('/*', function (_req, res) {
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const __filename = fileURLToPath(import.meta.url);
+  // eslint-disable-next-line @typescript-eslint/naming-convention
+  const __dirname = path.dirname(__filename);
+  res.sendFile(path.join(__dirname, '../dist/index.html'), function (err) {
+    if (err !== undefined) {
+      console.error('err', err);
+      res.status(500).send(err)
+    }
+  })
+})
 
 app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
   if (Object.entries(req.body).length === 0) {
