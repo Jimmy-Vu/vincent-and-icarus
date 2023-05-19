@@ -3,7 +3,7 @@ import React from "react";
 export default function Vincent(): React.ReactElement {
   return (
     <main className="w-full max-w-[1150px] h-full mt-8 px-8 lg:px-20">
-      <h1 className="mb-4 text-4xl lg:text-5xl font-sem">Meet Vincent 🎨</h1>
+      <h1 className="mb-4 text-4xl lg:text-5xl">Meet Vincent 🎨</h1>
       <section className="text-lg">
         <p className="mb-5">Welcome to the Vincent page! So, you&apos;re feeling a little down, huh? That&apos;s okay, we&apos;ve all been there.
           That&apos;s why we&apos;ve got Vincent in our corner to help lift you up when you&apos;re feeling low.</p>
