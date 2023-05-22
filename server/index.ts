@@ -40,11 +40,13 @@ app.get('/*', function (_req, res) {
 app.post('/api/message', multer().none(), async (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
   const { name, number: userNum, archetype } = req.body;
   if (name === '' || userNum === '' || archetype === '') {
+    console.error('one or more of the required fields are empty');
     res.status(500).json({ message: 'Missing required fields' });
     return;
   }
 
   if (supabase === undefined) {
+    console.error('supabase is undefined');
     res.status(500).json({ message: 'Supabase is undefined' });
     return;
   }
