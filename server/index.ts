@@ -4,11 +4,10 @@ import type { TypedRequestBody } from "../types";
 import twilio from "twilio";
 import cors from "cors";
 import multer from "multer";
-import { type QueryResult } from 'pg';
-import db from "./lib/db.js";
 import path from 'path';
 import staticMiddleware from './lib/static-middleware.js';
 import { fileURLToPath } from 'url';
+import supabase from './lib/supabase';
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNum = process.env.TWILIO_PHONE_NUM;
@@ -37,41 +36,39 @@ app.get('/*', function (_req, res) {
   })
 })
 
-app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
-  if (Object.entries(req.body).length === 0) {
-    res.status(500).json({ message: 'Missing body' });
+// eslint-disable-next-line @typescript-eslint/no-misused-promises
+app.post('/api/message', multer().none(), async (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
+  const { name, number: userNum, archetype } = req.body;
+  if (name === '' || userNum === '' || archetype === '') {
+    res.status(500).json({ message: 'Missing required fields' });
     return;
   }
-  const { name, number: userNum, archetype } = req.body;
-  let message = '';
-  let sql = '';
-  switch (archetype) {
-    case '':
-      sql = `
-      SELECT *
-        FROM "vincent"
-        ORDER BY RANDOM() LIMIT 1`;
-      break;
-    case 'icarus':
-      sql = `
-      SELECT *
-        FROM "icarus"
-        ORDER BY RANDOM() LIMIT 1`;
-      break;
-    case 'neutral':
-      sql = `
-      SELECT *
-        FROM "neutral"
-        ORDER BY RANDOM() LIMIT 1`;
-      break;
-  }
 
-  db.query(sql)
-    .then((result: QueryResult<{ message: string }>) => {
-      message = `Hey ${name}! ${result.rows[0].message}`;
+  if (supabase === undefined) {
+    res.status(500).json({ message: 'Supabase is undefined' });
+    return;
+  }
+  let message = '';
+  switch (archetype) {
+    case 'vincent': {
+      const { data, error } = await supabase.rpc('get_random_message_vincent');
+      message = `Hey ${name}! ${data}`;
       sendTextMsg(userNum, message, res);
-    })
-    .catch((err: Error) => { next(err); });
+      break;
+    }
+    case 'icarus': {
+      const { data, error } = await supabase.rpc('get_random_message_icarus');
+      message = `Hey ${name}! ${data}`;
+      sendTextMsg(userNum, message, res);
+      break;
+    }
+    case 'neutral': {
+      const { data, error } = await supabase.rpc('get_random_message_neutral');
+      message = `Hey ${name}! ${data}`;
+      sendTextMsg(userNum, message, res);
+      break;
+    }
+  }
 });
 
 function sendTextMsg(userNum: string, bodyMsg: string, res: Response): void {
