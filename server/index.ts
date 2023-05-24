@@ -9,11 +9,11 @@ import db from "./lib/db.js";
 import path from 'path';
 import staticMiddleware from './lib/static-middleware.js';
 import { fileURLToPath } from 'url';
+dotenv.config();
 const accountSid = process.env.TWILIO_ACCOUNT_SID;
 const authToken = process.env.TWILIO_AUTH_TOKEN;
 const twilioPhoneNum = process.env.TWILIO_PHONE_NUM;
 const client = twilio(accountSid, authToken);
-dotenv.config();
 
 const app = express();
 app.use(staticMiddleware);
