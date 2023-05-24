@@ -69,7 +69,7 @@ export default function MessageForm(): React.ReactElement {
       formData.append(key, userInfo[key as keyof typeof userInfo]);
     }
 
-    fetch('http://localhost:3000/api/message', {
+    fetch('/api/message', {
       method: 'POST',
       headers: {},
       body: formData
