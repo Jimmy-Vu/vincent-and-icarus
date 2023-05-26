@@ -38,11 +38,12 @@ app.get('/*', function (_req, res) {
 })
 
 app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string, number: string, archetype: string }>, res: Response, next: NextFunction) => {
-  if (Object.entries(req.body).length === 0) {
-    res.status(500).json({ message: 'Missing body' });
+  const { name, number: userNum, archetype } = req.body;
+  if (name === '' || userNum === '' || archetype === '') {
+    console.error('one or more of the required fields are empty');
+    res.status(500).json({ message: 'Missing required fields' });
     return;
   }
-  const { name, number: userNum, archetype } = req.body;
   let message = '';
   let sql = '';
   switch (archetype) {
