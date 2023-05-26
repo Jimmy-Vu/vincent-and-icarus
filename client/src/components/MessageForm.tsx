@@ -71,7 +71,6 @@ export default function MessageForm(): React.ReactElement {
 
     fetch('/api/message', {
       method: 'POST',
-      headers: {},
       body: formData
     })
       .then(async res => await res.json())
