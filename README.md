@@ -38,6 +38,8 @@
     Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.
     <br />
     <br />
+    <a href="https://vincent-and-icarus.onrender.com/">Live Demo</a>
+    ·
     <a href="https://github.com/Jimmy-Vu/vincent-and-icarus/issues">Report Bug</a>
     ·
     <a href="https://github.com/Jimmy-Vu/vincent-and-icarus/issues">Make A Suggestion</a>
