@@ -44,10 +44,10 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
     res.status(500).json({ message: 'Missing required fields' });
     return;
   }
-  let message = '';
+
   let sql = '';
   switch (archetype) {
-    case '':
+    case 'vincent':
       sql = `
       SELECT *
         FROM "vincent"
@@ -66,10 +66,9 @@ app.post('/api/message', multer().none(), (req: TypedRequestBody<{ name: string,
         ORDER BY RANDOM() LIMIT 1`;
       break;
   }
-
   db.query(sql)
     .then((result: QueryResult<{ message: string }>) => {
-      message = `Hey ${name}! ${result.rows[0].message}`;
+      const message = `Hey ${name}! ${result.rows[0].message}`;
       sendTextMsg(userNum, message, res);
     })
     .catch((err: Error) => { next(err); });
