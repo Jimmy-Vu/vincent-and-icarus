@@ -11,13 +11,13 @@ export default function Home(): React.ReactElement {
               <h1 className="text-4xl lg:text-5xl font-semibold lg:font-bold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
               <ul className="mt-4 lg:text-xl">
                 <li className="mb-4 before:content-['>']">
-                  Stay grounded with text reminders to keep your Icarus from flying too high
+                  Stay grounded with text reminders to keep your Icarus from flying too high 🕊
                 </li>
                 <li className="mb-4 before:content-['>']">
-                  Uplift your spirits with personalized messages to channel your inner Vincent
+                  Uplift your spirits with personalized messages to channel your inner Vincent 🎨
                 </li>
                 <li className="mb-4 before:content-['>']">
-                  Soar to new heights while staying grounded
+                  Soar to new heights while staying grounded ⚖️
                 </li>
               </ul>
             </div>
