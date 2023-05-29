@@ -18,7 +18,7 @@ export default function Footer(): React.ReactElement {
           </section>
           <ul>
             <li><Link to="/about">About</Link></li>
-            <li><Link to="/faq">FAQ</Link></li>
+            {/* <li><Link to="/faq">FAQ</Link></li> */}
           </ul>
         </div>
       </section>
