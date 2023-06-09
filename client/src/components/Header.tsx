@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React, { type Dispatch, type SetStateAction, useState } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-export default function Header() {
+export default function Header(props: { setIsMiniHeader: Dispatch<SetStateAction<boolean>>, isMiniHeader: boolean }): React.ReactElement {
+  const { isMiniHeader, setIsMiniHeader } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuStyle = {
     closed:

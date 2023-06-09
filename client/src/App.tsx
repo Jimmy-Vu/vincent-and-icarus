@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { createBrowserRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom'
 import Home from './pages/Home'
 import Vincent from './pages/Vincent'
@@ -29,9 +29,10 @@ export default function App(): React.ReactElement {
 }
 
 const Root = (): React.ReactElement => {
+  const [isMiniHeader, setIsMiniHeader] = useState(false);
   return (
     <div className="w-full h-full min-h-screen flex flex-col items-center">
-      <Header />
+      <Header isMiniHeader={isMiniHeader} setIsMiniHeader={setIsMiniHeader} />
       <div className="w-full max-w-screen-2xl h-full min-h-fit mb-6 pt-28 flex grow justify-center items-center">
         <Outlet />
       </div>
