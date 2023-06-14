@@ -7,6 +7,7 @@ import Header from './components/Header'
 import NotFound from './pages/not-found'
 import Footer from './components/Footer'
 import GetStarted from './pages/get-started'
+import About from './pages/About'
 
 export default function App(): React.ReactElement {
   const router = createBrowserRouter(
@@ -16,6 +17,7 @@ export default function App(): React.ReactElement {
         <Route path="vincent" element={<Vincent />} />
         <Route path="icarus" element={<Icarus />} />
         <Route path="get-started" element={<GetStarted />} />
+        <Route path="about" element={<About />} />
         <Route path="*" element={<NotFound />} />
       </Route>
     )
