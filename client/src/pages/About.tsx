@@ -9,7 +9,7 @@ export default function About(): React.ReactElement {
           First and foremost, thank you for your interest in Vincent&Icarus. The fact that you&apos;ve found your way to this little About page fills me with excitement and gratitude.
         </p>
         <p className="mb-5">
-          As I navigate through life, I&apos;ve realized the significance of balance and its constant presence in my journey. Balancing various aspects of life may seem simple in theory,
+          As I navigate through life, I&apos;ve realized the significance of balance and my desire for its presence in my journey. Balancing various aspects of life may seem simple in theory,
           but it&apos;s often challenging to achieve. Nevertheless, like the vast universe, I believe that we are all striving to find equilibrium, and every effort towards it is a
           positive step forward.
         </p>
