@@ -1,4 +1,4 @@
-import React, { type Dispatch, type SetStateAction, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
 export default function Header(): React.ReactElement {
