@@ -22,9 +22,9 @@ export default function Header(): React.ReactElement {
   const handleScroll = (): void => {
     const windowHeight = window.innerHeight;
     const scrollValue = window.scrollY;
-    const isAtBottom = scrollValue >= windowHeight / 2;
+    const scrolled = scrollValue >= windowHeight / 4;
 
-    if (isAtBottom) {
+    if (scrolled) {
       setIsMiniHeader(true);
     } else {
       setIsMiniHeader(false);
@@ -38,7 +38,7 @@ export default function Header(): React.ReactElement {
   }, [handleScroll])
 
   return (
-    <header className={`fixed w-full ${isMiniHeader ? headerValues.minHeight : headerValues.maxHeight} z-20 bg-white ${isMenuOpen ? '' : 'shadow-md'}`}>
+    <header className={`fixed w-full z-20 bg-white transition-all ${isMiniHeader ? headerValues.minHeight : headerValues.maxHeight} ${isMenuOpen ? '' : 'shadow-md'}`}>
       <nav className={`md:shadow-md flex justify-center`}>
         <div className="w-full max-w-screen-2xl h-full px-5 absolute flex flex-row justify-between items-center ">
           <Link onClick={() => { setIsMenuOpen(false); }} className="text-4xl font-semibold" to="/">Vincent&Icarus</Link>
