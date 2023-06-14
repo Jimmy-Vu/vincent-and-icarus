@@ -1,19 +1,46 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-export default function Header() {
+export default function Header(): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuStyle = {
     closed:
-      "w-full max-h-0 overflow-hidden absolute flex flex-col items-center mt-28 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300",
+      `w-full max-h-0 overflow-hidden absolute flex flex-col items-center px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300`,
     opened:
-      "w-full max-h-96 absolute flex flex-col items-center mt-28 pb-5 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300"
+      "w-full max-h-96 absolute flex flex-col items-center pb-5 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300"
   };
 
+  const headerValues = {
+    minHeight: 'h-24',
+    maxHeight: 'h-28',
+    minPaddingTop: 'mt-24',
+    maxPaddingTop: 'mt-28'
+  }
+
+  const [isMiniHeader, setIsMiniHeader] = useState(false);
+
+  const handleScroll = (): void => {
+    const windowHeight = window.innerHeight;
+    const scrollValue = window.scrollY;
+    const scrolled = scrollValue >= windowHeight / 4;
+
+    if (scrolled) {
+      setIsMiniHeader(true);
+    } else {
+      setIsMiniHeader(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll])
+
   return (
-    <header className={`fixed w-full h-28 z-20 bg-white ${isMenuOpen ? '' : 'shadow-md'}`}>
+    <header className={`fixed w-full z-20 bg-white transition-all ${isMiniHeader ? headerValues.minHeight : headerValues.maxHeight} ${isMenuOpen ? '' : 'shadow-md'}`}>
       <nav className={`md:shadow-md flex justify-center`}>
-        <div className="w-full max-w-screen-2xl h-28 px-5 absolute flex flex-row justify-between items-center ">
+        <div className="w-full max-w-screen-2xl h-full px-5 absolute flex flex-row justify-between items-center ">
           <Link onClick={() => { setIsMenuOpen(false); }} className="text-4xl font-semibold" to="/">Vincent&Icarus</Link>
           <button onClick={() => { setIsMenuOpen(!isMenuOpen); }} className="w-12 md:hidden h-12 border border-solid border-black rounded">
             <i className="fa-sharp fa-solid fa-bars text-4xl"></i>
@@ -46,7 +73,7 @@ export default function Header() {
           </ul>
         </div>
         {/* Mobile Dropdown Nav */}
-        <ul className={`md:hidden ${isMenuOpen ? menuStyle.opened : menuStyle.closed}`}>
+        <ul className={`md:hidden ${isMiniHeader ? headerValues.minPaddingTop : headerValues.maxPaddingTop} ${isMenuOpen ? menuStyle.opened : menuStyle.closed}`}>
           <li className={isMenuOpen ? `w-full border-b border-black pb-4 mb-4 transition-all ease-in-out duration-300` : `w-full border-b border-black pb-4 mb-4 opacity-0 transition-all ease-in-out duration-300`}>
             <NavLink onClick={() => { setIsMenuOpen(false); }} className={({ isActive, isPending }) =>
               isActive
