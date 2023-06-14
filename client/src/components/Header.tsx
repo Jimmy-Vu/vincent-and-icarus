@@ -1,20 +1,7 @@
-import React, { type Dispatch, type SetStateAction, useState } from "react";
+import React, { type Dispatch, type SetStateAction, useState, useEffect } from "react";
 import { Link, NavLink } from "react-router-dom";
 
-interface HeaderProps {
-  setIsMiniHeader: Dispatch<SetStateAction<boolean>>,
-  isMiniHeader: boolean,
-  headerValues: {
-    minHeight: string,
-    maxHeight: string,
-    minPaddingTop: string,
-    maxPaddingTop: string
-  }
-
-}
-
-export default function Header(props: HeaderProps): React.ReactElement {
-  const { isMiniHeader, headerValues } = props;
+export default function Header(): React.ReactElement {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const menuStyle = {
     closed:
@@ -22,6 +9,33 @@ export default function Header(props: HeaderProps): React.ReactElement {
     opened:
       "w-full max-h-96 absolute flex flex-col items-center pb-5 px-5 text-2xl text-center shadow-md bg-white font-medium transition-all ease-in-out duration-300"
   };
+
+  const headerValues = {
+    minHeight: 'h-24',
+    maxHeight: 'h-28',
+    minPaddingTop: 'mt-24',
+    maxPaddingTop: 'mt-28'
+  }
+
+  const [isMiniHeader, setIsMiniHeader] = useState(false);
+
+  const handleScroll = (): void => {
+    const windowHeight = window.innerHeight;
+    const scrollValue = window.scrollY;
+    const isAtBottom = scrollValue >= windowHeight / 2;
+
+    if (isAtBottom) {
+      setIsMiniHeader(true);
+    } else {
+      setIsMiniHeader(false);
+    }
+  };
+  useEffect(() => {
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, [handleScroll])
 
   return (
     <header className={`fixed w-full ${isMiniHeader ? headerValues.minHeight : headerValues.maxHeight} z-20 bg-white ${isMenuOpen ? '' : 'shadow-md'}`}>
