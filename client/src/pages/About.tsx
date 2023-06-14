@@ -3,7 +3,7 @@ import React from "react";
 export default function About(): React.ReactElement {
   return (
     <main className="w-full max-w-[1150px] h-full mt-8 px-8 lg:px-20">
-      <h1 className="mb-4 text-4xl lg:text-5xl">About V&I</h1>
+      <h1 id="#top" className="mb-4 text-4xl lg:text-5xl">About V&I</h1>
       <section className="text-lg">
         <p className="mb-5">
           First and foremost, thank you for your interest in Vincent&Icarus. The fact that you&apos;ve found your way to this little About page fills me with excitement and gratitude.
