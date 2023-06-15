@@ -6,10 +6,10 @@ export default function Home(): React.ReactElement {
     <>
       <main className="w-full min-h-fit flex flex-col mb-6 px-6 lg:px-48">
         <section id="home__main-page" className="h-[calc(100vh-7rem)] pt-3 flex flex-col items-center">
-          <div className="h-full flex flex-col lg:flex-row items-center lg:justify-center">
+          <div className="h-full flex flex-col items-center lg:flex-row  lg:justify-center">
             <div className="lg:basis-1/2">
-              <h1 className="text-4xl lg:text-5xl font-semibold lg:font-bold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
-              <ul className="mt-4 lg:text-xl">
+              <h1 className="text-3xl lg:text-5xl font-semibold lg:font-bold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
+              <ul className="mt-4 text-sm lg:text-xl">
                 <li className="mb-4 before:content-['>']">
                   Stay grounded with text reminders to keep your Icarus from flying too high 🕊
                 </li>
@@ -21,7 +21,7 @@ export default function Home(): React.ReactElement {
                 </li>
               </ul>
             </div>
-            <div className="lg:basis-1/2 lg:flex lg:justify-end">
+            <div className="flex lg:basis-1/2 lg:justify-end">
               <img className="max-w-[160px] lg:max-w-[385px] aspect-[160/204]" src="/Humaaans - Standing.png" />
             </div>
           </div>
@@ -30,7 +30,7 @@ export default function Home(): React.ReactElement {
           </a>
         </section>
 
-        <section id="home__second-page" className="min-h-screen pt-28">
+        <section id="home__second-page" className="min-h-screen pt-16">
           <section className="flex flex-col items-center">
             <div className="my-10 text-center lg:text-xl">
               <p className="mb-3">Are you held back by <b>self-doubt or overconfidence</b>?</p>
