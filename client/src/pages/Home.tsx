@@ -6,7 +6,7 @@ export default function Home(): React.ReactElement {
     <>
       <main className="w-full min-h-fit flex flex-col mb-6 px-6 lg:px-48">
         <section id="home__main-page" className="h-[calc(100vh-7rem)] pt-3 flex flex-col items-center">
-          <div className="h-full flex flex-col lg:flex-row items-center lg:justify-center">
+          <div className="h-full flex flex-col items-center lg:flex-row  lg:justify-center">
             <div className="lg:basis-1/2">
               <h1 className="text-3xl lg:text-5xl font-semibold lg:font-bold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
               <ul className="mt-4 text-sm lg:text-xl">
