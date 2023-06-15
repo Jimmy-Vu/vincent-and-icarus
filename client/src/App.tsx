@@ -34,7 +34,7 @@ const Root = (): React.ReactElement => {
   return (
     <div className="w-full h-full min-h-screen flex flex-col items-center">
       <Header />
-      <div className="w-full max-w-screen-2xl h-full min-h-fit mb-6 pt-28 flex grow justify-center items-center">
+      <div className="w-full max-w-screen-2xl h-full min-h-fit mb-6 pt-24 flex grow justify-center items-center">
         <Outlet />
       </div>
       <Footer />
