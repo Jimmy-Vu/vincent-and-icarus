@@ -11,10 +11,10 @@ export default function Header(): React.ReactElement {
   };
 
   const headerValues = {
-    minHeight: 'h-24',
-    maxHeight: 'h-28',
-    minPaddingTop: 'mt-24',
-    maxPaddingTop: 'mt-28'
+    minHeight: 'h-16',
+    maxHeight: 'h-20',
+    minPaddingTop: 'mt-16',
+    maxPaddingTop: 'mt-20'
   }
 
   const [isMiniHeader, setIsMiniHeader] = useState(false);
@@ -41,8 +41,8 @@ export default function Header(): React.ReactElement {
     <header className={`fixed w-full z-20 bg-white transition-all ${isMiniHeader ? headerValues.minHeight : headerValues.maxHeight} ${isMenuOpen ? '' : 'shadow-md'}`}>
       <nav className={`md:shadow-md flex justify-center`}>
         <div className="w-full max-w-screen-2xl h-full px-5 absolute flex flex-row justify-between items-center ">
-          <Link onClick={() => { setIsMenuOpen(false); }} className="text-4xl font-semibold" to="/">Vincent&Icarus</Link>
-          <button onClick={() => { setIsMenuOpen(!isMenuOpen); }} className="w-12 md:hidden h-12 border border-solid border-black rounded">
+          <Link onClick={() => { setIsMenuOpen(false); }} className="text-3xl md:text-4xl font-semibold" to="/">Vincent&Icarus</Link>
+          <button onClick={() => { setIsMenuOpen(!isMenuOpen); }} className="md:hidden w-11 h-11 border border-solid border-black rounded">
             <i className="fa-sharp fa-solid fa-bars text-4xl"></i>
           </button>
           {/* Desktop Nav */}
@@ -66,7 +66,7 @@ export default function Header(): React.ReactElement {
               } to="/icarus">Meet Icarus</NavLink>
             </li>
             <li>
-              <Link className="w-52 h-14 flex justify-center items-center bg-black rounded hover:bg-neutral-800 hover:ring-slate-500" to="/get-started">
+              <Link className="w-44 h-12 flex justify-center items-center bg-black rounded hover:bg-neutral-800 hover:ring-slate-500" to="/get-started">
                 <button className=" text-white text-xl font-bold">Get Started</button>
               </Link>
             </li>
