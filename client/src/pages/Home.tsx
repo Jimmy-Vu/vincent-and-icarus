@@ -30,7 +30,7 @@ export default function Home(): React.ReactElement {
           </a>
         </section>
 
-        <section id="home__second-page" className="min-h-screen pt-24">
+        <section id="home__second-page" className="min-h-screen pt-16">
           <section className="flex flex-col items-center">
             <div className="my-10 text-center lg:text-xl">
               <p className="mb-3">Are you held back by <b>self-doubt or overconfidence</b>?</p>
