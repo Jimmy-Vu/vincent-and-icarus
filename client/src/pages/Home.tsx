@@ -8,7 +8,7 @@ export default function Home(): React.ReactElement {
         <section id="home__main-page" className="h-[calc(100vh-7rem)] pt-3 flex flex-col items-center">
           <div className="h-full flex flex-col lg:flex-row items-center lg:justify-center">
             <div className="lg:basis-1/2">
-              <h1 className="text-4xl lg:text-5xl font-semibold lg:font-bold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
+              <h1 className="text-3xl lg:text-5xl font-semibold lg:font-bold">Stay balanced with Vincent&Icarus - text messages to keep your Icarus in check or uplift your Vincent.</h1>
               <ul className="mt-4 lg:text-xl">
                 <li className="mb-4 before:content-['>']">
                   Stay grounded with text reminders to keep your Icarus from flying too high 🕊
@@ -21,8 +21,8 @@ export default function Home(): React.ReactElement {
                 </li>
               </ul>
             </div>
-            <div className="lg:basis-1/2 lg:flex lg:justify-end">
-              <img className="max-w-[160px] lg:max-w-[385px] aspect-[160/204]" src="/Humaaans - Standing.png" />
+            <div className="flex lg:basis-1/2 lg:justify-end">
+              <img className="max-w-[200px] lg:max-w-[385px] aspect-[160/204]" src="/Humaaans - Standing.png" />
             </div>
           </div>
           <a href="#home__second-page" className="absolute bottom-1 mx-auto text-3xl lg:text-4xl animate-bounce-slow">
